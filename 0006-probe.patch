@@ -1,7 +1,7 @@
-From ba2e674c2edf2644f385c2947bc64c2e559e86a7 Mon Sep 17 00:00:00 2001
+From 1daffb179c34cb72d9d3c3370383fab68b891235 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 11 Feb 2015 16:53:08 -0600
-Subject: [PATCH 06/13] probe
+Subject: [PATCH 06/14] probe
 
 Author:    Arjan van de Ven <arjan@linux.intel.com>
 
@@ -11,7 +11,7 @@ Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
  1 file changed, 41 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 6675a7a..28663ef 100644
+index b978bbf..07702f4 100644
 --- a/drivers/pci/probe.c
 +++ b/drivers/pci/probe.c
 @@ -178,6 +178,11 @@ int __pci_read_base(struct pci_dev *dev, enum pci_bar_type type,
@@ -58,9 +58,9 @@ index 6675a7a..28663ef 100644
  }
  
  static void pci_read_bridge_io(struct pci_bus *child)
-@@ -1085,6 +1093,28 @@ int pci_cfg_space_size(struct pci_dev *dev)
- 
- #define LEGACY_IO_RESOURCE	(IORESOURCE_IO | IORESOURCE_PCI_FIXED)
+@@ -1124,6 +1132,28 @@ static void pci_msi_setup_pci_dev(struct pci_dev *dev)
+ 		pci_msix_clear_and_set_ctrl(dev, PCI_MSIX_FLAGS_ENABLE, 0);
+ }
  
 +static int guess_bar_count(int class)
 +{
@@ -87,7 +87,7 @@ index 6675a7a..28663ef 100644
  /**
   * pci_setup_device - fill in class and map information of a device
   * @dev: the device structure to fill
-@@ -1103,6 +1133,9 @@ int pci_setup_device(struct pci_dev *dev)
+@@ -1142,6 +1172,9 @@ int pci_setup_device(struct pci_dev *dev)
  	int pos = 0;
  	struct pci_bus_region region;
  	struct resource *res;
@@ -97,7 +97,7 @@ index 6675a7a..28663ef 100644
  
  	if (pci_read_config_byte(dev, PCI_HEADER_TYPE, &hdr_type))
  		return -EIO;
-@@ -1150,7 +1183,11 @@ int pci_setup_device(struct pci_dev *dev)
+@@ -1191,7 +1224,11 @@ int pci_setup_device(struct pci_dev *dev)
  		if (class == PCI_CLASS_BRIDGE_PCI)
  			goto bad;
  		pci_read_irq(dev);
@@ -110,7 +110,7 @@ index 6675a7a..28663ef 100644
  		pci_read_config_word(dev, PCI_SUBSYSTEM_VENDOR_ID, &dev->subsystem_vendor);
  		pci_read_config_word(dev, PCI_SUBSYSTEM_ID, &dev->subsystem_device);
  
-@@ -1235,6 +1272,8 @@ int pci_setup_device(struct pci_dev *dev)
+@@ -1276,6 +1313,8 @@ int pci_setup_device(struct pci_dev *dev)
  		dev->class = PCI_CLASS_NOT_DEFINED;
  	}
  
@@ -120,5 +120,5 @@ index 6675a7a..28663ef 100644
  	return 0;
  }
 -- 
-2.4.4
+2.4.3
 

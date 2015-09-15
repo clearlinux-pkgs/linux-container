@@ -5,13 +5,13 @@
 #
 
 Name:           linux-container
-Version:        4.1.6
+Version:        4.2.0
 Release:        36
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.6.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -28,7 +28,7 @@ BuildRequires:  openssl
 BuildRequires:  flex
 BuildRequires:  bison
 
-# don't srip .ko files!
+# don't strip .ko files!
 %global __os_install_post %{nil}
 %define debug_package %{nil}
 %define __strip /bin/true
@@ -47,7 +47,7 @@ patch10: 0010-tweak-the-scheduler-to-favor-CPU-0.patch
 patch11: 0011-probe2.patch
 patch12: 0012-No-wait-for-the-known-devices.patch
 patch13: 0013-Turn-mmput-into-an-async-function.patch
-Patch14: ptdamage.patch
+Patch14: 0014-ptdamage.patch
 
 # plkvm patches
 Patch401: 401-plkvm.patch
@@ -73,7 +73,7 @@ Group:          kernel
 Linux kernel extra file
 
 %prep
-%setup -q -n linux-4.1.6
+%setup -q -n linux-4.2
 
 %patch1 -p1
 %patch2 -p1
