@@ -1,17 +1,17 @@
-diff --git a/Documentation/Makefile b/Documentation/Makefile
-index bc05482..e2127a7 100644
---- a/Documentation/Makefile
-+++ b/Documentation/Makefile
+Index: linux-4.2/Documentation/Makefile
+===================================================================
+--- linux-4.2.orig/Documentation/Makefile
++++ linux-4.2/Documentation/Makefile
 @@ -1,4 +1,4 @@
  subdir-y := accounting auxdisplay blackfin connector \
 -	filesystems filesystems ia64 laptops mic misc-devices \
 +	filesystems filesystems ia64 kdbus laptops mic misc-devices \
  	networking pcmcia prctl ptp spi timers vDSO video4linux \
  	watchdog
-diff --git a/Documentation/ioctl/ioctl-number.txt b/Documentation/ioctl/ioctl-number.txt
-index 51f4221..ec7c81b 100644
---- a/Documentation/ioctl/ioctl-number.txt
-+++ b/Documentation/ioctl/ioctl-number.txt
+Index: linux-4.2/Documentation/ioctl/ioctl-number.txt
+===================================================================
+--- linux-4.2.orig/Documentation/ioctl/ioctl-number.txt
++++ linux-4.2/Documentation/ioctl/ioctl-number.txt
 @@ -292,6 +292,7 @@ Code  Seq#(hex)	Include File		Comments
  0x92	00-0F	drivers/usb/mon/mon_bin.c
  0x93	60-7F	linux/auto_fs.h
@@ -20,19 +20,17 @@ index 51f4221..ec7c81b 100644
  0x97	00-7F	fs/ceph/ioctl.h		Ceph file system
  0x99	00-0F				537-Addinboard driver
  					<mailto:buk@buks.ipn.de>
-diff --git a/Documentation/kdbus/.gitignore b/Documentation/kdbus/.gitignore
-new file mode 100644
-index 0000000..b4a77cc
+Index: linux-4.2/Documentation/kdbus/.gitignore
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/.gitignore
++++ linux-4.2/Documentation/kdbus/.gitignore
 @@ -0,0 +1,2 @@
 +*.7
 +*.html
-diff --git a/Documentation/kdbus/Makefile b/Documentation/kdbus/Makefile
-new file mode 100644
-index 0000000..8caffe5
+Index: linux-4.2/Documentation/kdbus/Makefile
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/Makefile
++++ linux-4.2/Documentation/kdbus/Makefile
 @@ -0,0 +1,44 @@
 +DOCS :=	\
 +	kdbus.xml		\
@@ -78,11 +76,10 @@ index 0000000..8caffe5
 +# we don't support other %docs targets right now
 +%docs:
 +	@true
-diff --git a/Documentation/kdbus/kdbus.bus.xml b/Documentation/kdbus/kdbus.bus.xml
-new file mode 100644
-index 0000000..83f1198
+Index: linux-4.2/Documentation/kdbus/kdbus.bus.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.bus.xml
++++ linux-4.2/Documentation/kdbus/kdbus.bus.xml
 @@ -0,0 +1,344 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -428,11 +425,10 @@ index 0000000..83f1198
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.connection.xml b/Documentation/kdbus/kdbus.connection.xml
-new file mode 100644
-index 0000000..4bb5f30
+Index: linux-4.2/Documentation/kdbus/kdbus.connection.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.connection.xml
++++ linux-4.2/Documentation/kdbus/kdbus.connection.xml
 @@ -0,0 +1,1244 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -1678,11 +1674,10 @@ index 0000000..4bb5f30
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.endpoint.xml b/Documentation/kdbus/kdbus.endpoint.xml
-new file mode 100644
-index 0000000..6632485
+Index: linux-4.2/Documentation/kdbus/kdbus.endpoint.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.endpoint.xml
++++ linux-4.2/Documentation/kdbus/kdbus.endpoint.xml
 @@ -0,0 +1,429 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -2113,11 +2108,10 @@ index 0000000..6632485
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.fs.xml b/Documentation/kdbus/kdbus.fs.xml
-new file mode 100644
-index 0000000..8c2a90e
+Index: linux-4.2/Documentation/kdbus/kdbus.fs.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.fs.xml
++++ linux-4.2/Documentation/kdbus/kdbus.fs.xml
 @@ -0,0 +1,124 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -2243,11 +2237,10 @@ index 0000000..8c2a90e
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.item.xml b/Documentation/kdbus/kdbus.item.xml
-new file mode 100644
-index 0000000..ee09dfa
+Index: linux-4.2/Documentation/kdbus/kdbus.item.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.item.xml
++++ linux-4.2/Documentation/kdbus/kdbus.item.xml
 @@ -0,0 +1,839 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -3088,11 +3081,10 @@ index 0000000..ee09dfa
 +  </refsect1>
 +
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.match.xml b/Documentation/kdbus/kdbus.match.xml
-new file mode 100644
-index 0000000..ae38e04
+Index: linux-4.2/Documentation/kdbus/kdbus.match.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.match.xml
++++ linux-4.2/Documentation/kdbus/kdbus.match.xml
 @@ -0,0 +1,555 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -3649,11 +3641,10 @@ index 0000000..ae38e04
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.message.xml b/Documentation/kdbus/kdbus.message.xml
-new file mode 100644
-index 0000000..0115d9d
+Index: linux-4.2/Documentation/kdbus/kdbus.message.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.message.xml
++++ linux-4.2/Documentation/kdbus/kdbus.message.xml
 @@ -0,0 +1,1276 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -4931,11 +4922,10 @@ index 0000000..0115d9d
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.name.xml b/Documentation/kdbus/kdbus.name.xml
-new file mode 100644
-index 0000000..3f5f6a6
+Index: linux-4.2/Documentation/kdbus/kdbus.name.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.name.xml
++++ linux-4.2/Documentation/kdbus/kdbus.name.xml
 @@ -0,0 +1,711 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -5648,11 +5638,10 @@ index 0000000..3f5f6a6
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.policy.xml b/Documentation/kdbus/kdbus.policy.xml
-new file mode 100644
-index 0000000..6732416
+Index: linux-4.2/Documentation/kdbus/kdbus.policy.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.policy.xml
++++ linux-4.2/Documentation/kdbus/kdbus.policy.xml
 @@ -0,0 +1,406 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -6060,11 +6049,10 @@ index 0000000..6732416
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.pool.xml b/Documentation/kdbus/kdbus.pool.xml
-new file mode 100644
-index 0000000..a9e16f1
+Index: linux-4.2/Documentation/kdbus/kdbus.pool.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.pool.xml
++++ linux-4.2/Documentation/kdbus/kdbus.pool.xml
 @@ -0,0 +1,326 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -6392,11 +6380,10 @@ index 0000000..a9e16f1
 +    </simplelist>
 +  </refsect1>
 +</refentry>
-diff --git a/Documentation/kdbus/kdbus.xml b/Documentation/kdbus/kdbus.xml
-new file mode 100644
-index 0000000..d8e7400
+Index: linux-4.2/Documentation/kdbus/kdbus.xml
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/kdbus.xml
++++ linux-4.2/Documentation/kdbus/kdbus.xml
 @@ -0,0 +1,1012 @@
 +<?xml version='1.0'?> <!--*-nxml-*-->
 +<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
@@ -7410,11 +7397,10 @@ index 0000000..d8e7400
 +  </refsect1>
 +
 +</refentry>
-diff --git a/Documentation/kdbus/stylesheet.xsl b/Documentation/kdbus/stylesheet.xsl
-new file mode 100644
-index 0000000..52565ea
+Index: linux-4.2/Documentation/kdbus/stylesheet.xsl
+===================================================================
 --- /dev/null
-+++ b/Documentation/kdbus/stylesheet.xsl
++++ linux-4.2/Documentation/kdbus/stylesheet.xsl
 @@ -0,0 +1,16 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" version="1.0">
@@ -7432,11 +7418,11 @@ index 0000000..52565ea
 +		<text>.html</text>
 +	</template>
 +</stylesheet>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d8afd29..02f7668 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5585,6 +5585,19 @@ S:	Maintained
+Index: linux-4.2/MAINTAINERS
+===================================================================
+--- linux-4.2.orig/MAINTAINERS
++++ linux-4.2/MAINTAINERS
+@@ -5807,6 +5807,19 @@ S:	Maintained
  F:	Documentation/kbuild/kconfig-language.txt
  F:	scripts/kconfig/
  
@@ -7456,11 +7442,11 @@ index d8afd29..02f7668 100644
  KDUMP
  M:	Vivek Goyal <vgoyal@redhat.com>
  M:	Haren Myneni <hbabu@us.ibm.com>
-diff --git a/Makefile b/Makefile
-index f5c8983..a1c8d57 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1343,6 +1343,7 @@ $(help-board-dirs): help-%:
+Index: linux-4.2/Makefile
+===================================================================
+--- linux-4.2.orig/Makefile
++++ linux-4.2/Makefile
+@@ -1346,6 +1346,7 @@ $(help-board-dirs): help-%:
  %docs: scripts_basic FORCE
  	$(Q)$(MAKE) $(build)=scripts build_docproc
  	$(Q)$(MAKE) $(build)=Documentation/DocBook $@
@@ -7468,11 +7454,11 @@ index f5c8983..a1c8d57 100644
  
  else # KBUILD_EXTMOD
  
-diff --git a/include/uapi/linux/Kbuild b/include/uapi/linux/Kbuild
-index 1a0006a..4842a98 100644
---- a/include/uapi/linux/Kbuild
-+++ b/include/uapi/linux/Kbuild
-@@ -215,6 +215,7 @@ header-y += ixjuser.h
+Index: linux-4.2/include/uapi/linux/Kbuild
+===================================================================
+--- linux-4.2.orig/include/uapi/linux/Kbuild
++++ linux-4.2/include/uapi/linux/Kbuild
+@@ -216,6 +216,7 @@ header-y += ixjuser.h
  header-y += jffs2.h
  header-y += joystick.h
  header-y += kcmp.h
@@ -7480,11 +7466,10 @@ index 1a0006a..4842a98 100644
  header-y += kdev_t.h
  header-y += kd.h
  header-y += kernelcapi.h
-diff --git a/include/uapi/linux/kdbus.h b/include/uapi/linux/kdbus.h
-new file mode 100644
-index 0000000..4fc44cb
+Index: linux-4.2/include/uapi/linux/kdbus.h
+===================================================================
 --- /dev/null
-+++ b/include/uapi/linux/kdbus.h
++++ linux-4.2/include/uapi/linux/kdbus.h
 @@ -0,0 +1,984 @@
 +/*
 + * kdbus is free software; you can redistribute it and/or modify it under
@@ -8470,10 +8455,10 @@ index 0000000..4fc44cb
 +};
 +
 +#endif /* _UAPI_KDBUS_H_ */
-diff --git a/include/uapi/linux/magic.h b/include/uapi/linux/magic.h
-index 7b1425a..ce2ac5a 100644
---- a/include/uapi/linux/magic.h
-+++ b/include/uapi/linux/magic.h
+Index: linux-4.2/include/uapi/linux/magic.h
+===================================================================
+--- linux-4.2.orig/include/uapi/linux/magic.h
++++ linux-4.2/include/uapi/linux/magic.h
 @@ -76,4 +76,6 @@
  #define BTRFS_TEST_MAGIC	0x73727279
  #define NSFS_MAGIC		0x6e736673
@@ -8481,10 +8466,10 @@ index 7b1425a..ce2ac5a 100644
 +#define KDBUS_SUPER_MAGIC	0x44427573
 +
  #endif /* __LINUX_MAGIC_H__ */
-diff --git a/init/Kconfig b/init/Kconfig
-index dc24dec..9388071 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
+Index: linux-4.2/init/Kconfig
+===================================================================
+--- linux-4.2.orig/init/Kconfig
++++ linux-4.2/init/Kconfig
 @@ -261,6 +261,19 @@ config POSIX_MQUEUE_SYSCTL
  	depends on SYSCTL
  	default y
@@ -8505,21 +8490,20 @@ index dc24dec..9388071 100644
  config CROSS_MEMORY_ATTACH
  	bool "Enable process_vm_readv/writev syscalls"
  	depends on MMU
-diff --git a/ipc/Makefile b/ipc/Makefile
-index 86c7300..68ec416 100644
---- a/ipc/Makefile
-+++ b/ipc/Makefile
+Index: linux-4.2/ipc/Makefile
+===================================================================
+--- linux-4.2.orig/ipc/Makefile
++++ linux-4.2/ipc/Makefile
 @@ -9,4 +9,4 @@ obj_mq-$(CONFIG_COMPAT) += compat_mq.o
  obj-$(CONFIG_POSIX_MQUEUE) += mqueue.o msgutil.o $(obj_mq-y)
  obj-$(CONFIG_IPC_NS) += namespace.o
  obj-$(CONFIG_POSIX_MQUEUE_SYSCTL) += mq_sysctl.o
 -
 +obj-$(CONFIG_KDBUS) += kdbus/
-diff --git a/ipc/kdbus/Makefile b/ipc/kdbus/Makefile
-new file mode 100644
-index 0000000..66663a1
+Index: linux-4.2/ipc/kdbus/Makefile
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/Makefile
++++ linux-4.2/ipc/kdbus/Makefile
 @@ -0,0 +1,33 @@
 +#
 +# By setting KDBUS_EXT=2, the kdbus module will be built as kdbus2.ko, and
@@ -8554,11 +8538,10 @@ index 0000000..66663a1
 +	util.o
 +
 +obj-$(CONFIG_KDBUS) += kdbus$(KDBUS_EXT).o
-diff --git a/ipc/kdbus/bus.c b/ipc/kdbus/bus.c
-new file mode 100644
-index 0000000..a67f825
+Index: linux-4.2/ipc/kdbus/bus.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/bus.c
++++ linux-4.2/ipc/kdbus/bus.c
 @@ -0,0 +1,514 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -9074,11 +9057,10 @@ index 0000000..a67f825
 +	kfree(meta_items);
 +	return kdbus_args_clear(&args, ret);
 +}
-diff --git a/ipc/kdbus/bus.h b/ipc/kdbus/bus.h
-new file mode 100644
-index 0000000..8c2acae
+Index: linux-4.2/ipc/kdbus/bus.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/bus.h
++++ linux-4.2/ipc/kdbus/bus.h
 @@ -0,0 +1,101 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -9181,11 +9163,10 @@ index 0000000..8c2acae
 +int kdbus_cmd_bus_creator_info(struct kdbus_conn *conn, void __user *argp);
 +
 +#endif
-diff --git a/ipc/kdbus/connection.c b/ipc/kdbus/connection.c
-new file mode 100644
-index 0000000..ef63d65
+Index: linux-4.2/ipc/kdbus/connection.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/connection.c
++++ linux-4.2/ipc/kdbus/connection.c
 @@ -0,0 +1,2227 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -11414,11 +11395,10 @@ index 0000000..ef63d65
 +
 +	return kdbus_args_clear(&args, ret);
 +}
-diff --git a/ipc/kdbus/connection.h b/ipc/kdbus/connection.h
-new file mode 100644
-index 0000000..1ad0820
+Index: linux-4.2/ipc/kdbus/connection.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/connection.h
++++ linux-4.2/ipc/kdbus/connection.h
 @@ -0,0 +1,260 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -11680,11 +11660,10 @@ index 0000000..1ad0820
 +}
 +
 +#endif
-diff --git a/ipc/kdbus/domain.c b/ipc/kdbus/domain.c
-new file mode 100644
-index 0000000..ac9f760
+Index: linux-4.2/ipc/kdbus/domain.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/domain.c
++++ linux-4.2/ipc/kdbus/domain.c
 @@ -0,0 +1,296 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -11982,11 +11961,10 @@ index 0000000..ac9f760
 +		kref_put(&u->kref, __kdbus_user_free);
 +	return NULL;
 +}
-diff --git a/ipc/kdbus/domain.h b/ipc/kdbus/domain.h
-new file mode 100644
-index 0000000..447a2bd
+Index: linux-4.2/ipc/kdbus/domain.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/domain.h
++++ linux-4.2/ipc/kdbus/domain.h
 @@ -0,0 +1,77 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -12065,11 +12043,10 @@ index 0000000..447a2bd
 +struct kdbus_user *kdbus_user_unref(struct kdbus_user *u);
 +
 +#endif
-diff --git a/ipc/kdbus/endpoint.c b/ipc/kdbus/endpoint.c
-new file mode 100644
-index 0000000..44e7a20
+Index: linux-4.2/ipc/kdbus/endpoint.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/endpoint.c
++++ linux-4.2/ipc/kdbus/endpoint.c
 @@ -0,0 +1,303 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -12374,11 +12351,10 @@ index 0000000..44e7a20
 +			       0, true, ep);
 +	return kdbus_args_clear(&args, ret);
 +}
-diff --git a/ipc/kdbus/endpoint.h b/ipc/kdbus/endpoint.h
-new file mode 100644
-index 0000000..e0da59f
+Index: linux-4.2/ipc/kdbus/endpoint.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/endpoint.h
++++ linux-4.2/ipc/kdbus/endpoint.h
 @@ -0,0 +1,70 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -12450,11 +12426,10 @@ index 0000000..e0da59f
 +int kdbus_cmd_ep_update(struct kdbus_ep *ep, void __user *argp);
 +
 +#endif
-diff --git a/ipc/kdbus/fs.c b/ipc/kdbus/fs.c
-new file mode 100644
-index 0000000..09c4809
+Index: linux-4.2/ipc/kdbus/fs.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/fs.c
++++ linux-4.2/ipc/kdbus/fs.c
 @@ -0,0 +1,508 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -12964,11 +12939,10 @@ index 0000000..09c4809
 +exit:
 +	kdbus_node_release(&domain->node);
 +}
-diff --git a/ipc/kdbus/fs.h b/ipc/kdbus/fs.h
-new file mode 100644
-index 0000000..62f7d6a
+Index: linux-4.2/ipc/kdbus/fs.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/fs.h
++++ linux-4.2/ipc/kdbus/fs.h
 @@ -0,0 +1,28 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -12998,11 +12972,10 @@ index 0000000..62f7d6a
 +	((struct kdbus_node *)(_inode)->i_private)
 +
 +#endif
-diff --git a/ipc/kdbus/handle.c b/ipc/kdbus/handle.c
-new file mode 100644
-index 0000000..fc60932
+Index: linux-4.2/ipc/kdbus/handle.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/handle.c
++++ linux-4.2/ipc/kdbus/handle.c
 @@ -0,0 +1,691 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -13695,11 +13668,10 @@ index 0000000..fc60932
 +	.compat_ioctl =		kdbus_handle_ioctl,
 +#endif
 +};
-diff --git a/ipc/kdbus/handle.h b/ipc/kdbus/handle.h
-new file mode 100644
-index 0000000..5dde2c1
+Index: linux-4.2/ipc/kdbus/handle.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/handle.h
++++ linux-4.2/ipc/kdbus/handle.h
 @@ -0,0 +1,103 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -13804,11 +13776,10 @@ index 0000000..5dde2c1
 +	})
 +
 +#endif
-diff --git a/ipc/kdbus/item.c b/ipc/kdbus/item.c
-new file mode 100644
-index 0000000..ce78dba
+Index: linux-4.2/ipc/kdbus/item.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/item.c
++++ linux-4.2/ipc/kdbus/item.c
 @@ -0,0 +1,293 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14103,11 +14074,10 @@ index 0000000..ce78dba
 +
 +	return KDBUS_ITEM_NEXT(item);
 +}
-diff --git a/ipc/kdbus/item.h b/ipc/kdbus/item.h
-new file mode 100644
-index 0000000..3a7e6cc
+Index: linux-4.2/ipc/kdbus/item.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/item.h
++++ linux-4.2/ipc/kdbus/item.h
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14170,11 +14140,10 @@ index 0000000..3a7e6cc
 +				  const void *data, size_t len);
 +
 +#endif
-diff --git a/ipc/kdbus/limits.h b/ipc/kdbus/limits.h
-new file mode 100644
-index 0000000..c54925a
+Index: linux-4.2/ipc/kdbus/limits.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/limits.h
++++ linux-4.2/ipc/kdbus/limits.h
 @@ -0,0 +1,61 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14237,11 +14206,10 @@ index 0000000..c54925a
 +#define KDBUS_USER_MAX_BUSES			16
 +
 +#endif
-diff --git a/ipc/kdbus/main.c b/ipc/kdbus/main.c
-new file mode 100644
-index 0000000..1ad4dc8
+Index: linux-4.2/ipc/kdbus/main.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/main.c
++++ linux-4.2/ipc/kdbus/main.c
 @@ -0,0 +1,114 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14357,11 +14325,10 @@ index 0000000..1ad4dc8
 +MODULE_LICENSE("GPL");
 +MODULE_DESCRIPTION("D-Bus, powerful, easy to use interprocess communication");
 +MODULE_ALIAS_FS(KBUILD_MODNAME "fs");
-diff --git a/ipc/kdbus/match.c b/ipc/kdbus/match.c
-new file mode 100644
-index 0000000..4ee6a1f
+Index: linux-4.2/ipc/kdbus/match.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/match.c
++++ linux-4.2/ipc/kdbus/match.c
 @@ -0,0 +1,546 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14909,11 +14876,10 @@ index 0000000..4ee6a1f
 +
 +	return kdbus_args_clear(&args, ret);
 +}
-diff --git a/ipc/kdbus/match.h b/ipc/kdbus/match.h
-new file mode 100644
-index 0000000..ceb492f
+Index: linux-4.2/ipc/kdbus/match.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/match.h
++++ linux-4.2/ipc/kdbus/match.h
 @@ -0,0 +1,35 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -14950,11 +14916,10 @@ index 0000000..ceb492f
 +int kdbus_cmd_match_remove(struct kdbus_conn *conn, void __user *argp);
 +
 +#endif
-diff --git a/ipc/kdbus/message.c b/ipc/kdbus/message.c
-new file mode 100644
-index 0000000..ae565cd
+Index: linux-4.2/ipc/kdbus/message.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/message.c
++++ linux-4.2/ipc/kdbus/message.c
 @@ -0,0 +1,1040 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -15996,11 +15961,10 @@ index 0000000..ae565cd
 +	kfree(meta_items);
 +	return slice;
 +}
-diff --git a/ipc/kdbus/message.h b/ipc/kdbus/message.h
-new file mode 100644
-index 0000000..298f9c9
+Index: linux-4.2/ipc/kdbus/message.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/message.h
++++ linux-4.2/ipc/kdbus/message.h
 @@ -0,0 +1,120 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -16122,11 +16086,10 @@ index 0000000..298f9c9
 +					    struct kdbus_conn *dst);
 +
 +#endif
-diff --git a/ipc/kdbus/metadata.c b/ipc/kdbus/metadata.c
-new file mode 100644
-index 0000000..71ca475
+Index: linux-4.2/ipc/kdbus/metadata.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/metadata.c
++++ linux-4.2/ipc/kdbus/metadata.c
 @@ -0,0 +1,1347 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -17475,11 +17438,10 @@ index 0000000..71ca475
 +				   rcv->cred,
 +				   atomic64_read(&rcv->attach_flags_recv));
 +}
-diff --git a/ipc/kdbus/metadata.h b/ipc/kdbus/metadata.h
-new file mode 100644
-index 0000000..dba7cc7
+Index: linux-4.2/ipc/kdbus/metadata.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/metadata.h
++++ linux-4.2/ipc/kdbus/metadata.h
 @@ -0,0 +1,86 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -17567,11 +17529,10 @@ index 0000000..dba7cc7
 +			const struct kdbus_conn *rcv);
 +
 +#endif
-diff --git a/ipc/kdbus/names.c b/ipc/kdbus/names.c
-new file mode 100644
-index 0000000..bf44ca3
+Index: linux-4.2/ipc/kdbus/names.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/names.c
++++ linux-4.2/ipc/kdbus/names.c
 @@ -0,0 +1,854 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -18427,11 +18388,10 @@ index 0000000..bf44ca3
 +	kdbus_pool_slice_release(slice);
 +	return kdbus_args_clear(&args, ret);
 +}
-diff --git a/ipc/kdbus/names.h b/ipc/kdbus/names.h
-new file mode 100644
-index 0000000..edac59d
+Index: linux-4.2/ipc/kdbus/names.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/names.h
++++ linux-4.2/ipc/kdbus/names.h
 @@ -0,0 +1,105 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -18538,11 +18498,10 @@ index 0000000..edac59d
 +}
 +
 +#endif
-diff --git a/ipc/kdbus/node.c b/ipc/kdbus/node.c
-new file mode 100644
-index 0000000..89f58bc
+Index: linux-4.2/ipc/kdbus/node.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/node.c
++++ linux-4.2/ipc/kdbus/node.c
 @@ -0,0 +1,897 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -19441,11 +19400,10 @@ index 0000000..89f58bc
 +	mutex_unlock(&node->lock);
 +	return pos;
 +}
-diff --git a/ipc/kdbus/node.h b/ipc/kdbus/node.h
-new file mode 100644
-index 0000000..970e02b
+Index: linux-4.2/ipc/kdbus/node.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/node.h
++++ linux-4.2/ipc/kdbus/node.h
 @@ -0,0 +1,86 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -19533,11 +19491,10 @@ index 0000000..970e02b
 +					 struct kdbus_node *prev);
 +
 +#endif
-diff --git a/ipc/kdbus/notify.c b/ipc/kdbus/notify.c
-new file mode 100644
-index 0000000..375758c
+Index: linux-4.2/ipc/kdbus/notify.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/notify.c
++++ linux-4.2/ipc/kdbus/notify.c
 @@ -0,0 +1,204 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -19743,11 +19700,10 @@ index 0000000..375758c
 +		kdbus_staging_free(s);
 +	}
 +}
-diff --git a/ipc/kdbus/notify.h b/ipc/kdbus/notify.h
-new file mode 100644
-index 0000000..03df464
+Index: linux-4.2/ipc/kdbus/notify.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/notify.h
++++ linux-4.2/ipc/kdbus/notify.h
 @@ -0,0 +1,30 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -19779,11 +19735,10 @@ index 0000000..03df464
 +void kdbus_notify_free(struct kdbus_bus *bus);
 +
 +#endif
-diff --git a/ipc/kdbus/policy.c b/ipc/kdbus/policy.c
-new file mode 100644
-index 0000000..f2618e15
+Index: linux-4.2/ipc/kdbus/policy.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/policy.c
++++ linux-4.2/ipc/kdbus/policy.c
 @@ -0,0 +1,489 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -20274,11 +20229,10 @@ index 0000000..f2618e15
 +
 +	return ret;
 +}
-diff --git a/ipc/kdbus/policy.h b/ipc/kdbus/policy.h
-new file mode 100644
-index 0000000..15dd7bc
+Index: linux-4.2/ipc/kdbus/policy.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/policy.h
++++ linux-4.2/ipc/kdbus/policy.h
 @@ -0,0 +1,51 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -20331,11 +20285,10 @@ index 0000000..15dd7bc
 +		     const void *owner);
 +
 +#endif
-diff --git a/ipc/kdbus/pool.c b/ipc/kdbus/pool.c
-new file mode 100644
-index 0000000..63ccd55
+Index: linux-4.2/ipc/kdbus/pool.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/pool.c
++++ linux-4.2/ipc/kdbus/pool.c
 @@ -0,0 +1,728 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -21065,11 +21018,10 @@ index 0000000..63ccd55
 +
 +	return pool->f->f_op->mmap(pool->f, vma);
 +}
-diff --git a/ipc/kdbus/pool.h b/ipc/kdbus/pool.h
-new file mode 100644
-index 0000000..a903821
+Index: linux-4.2/ipc/kdbus/pool.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/pool.h
++++ linux-4.2/ipc/kdbus/pool.h
 @@ -0,0 +1,46 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -21117,11 +21069,10 @@ index 0000000..a903821
 +				    size_t iov_count, size_t total_len);
 +
 +#endif
-diff --git a/ipc/kdbus/queue.c b/ipc/kdbus/queue.c
-new file mode 100644
-index 0000000..f9c44d7
+Index: linux-4.2/ipc/kdbus/queue.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/queue.c
++++ linux-4.2/ipc/kdbus/queue.c
 @@ -0,0 +1,363 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -21486,11 +21437,10 @@ index 0000000..f9c44d7
 +	kdbus_conn_quota_dec(dst, e->user, size, fds);
 +	return ret;
 +}
-diff --git a/ipc/kdbus/queue.h b/ipc/kdbus/queue.h
-new file mode 100644
-index 0000000..bf686d1
+Index: linux-4.2/ipc/kdbus/queue.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/queue.h
++++ linux-4.2/ipc/kdbus/queue.h
 @@ -0,0 +1,84 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -21576,11 +21526,10 @@ index 0000000..bf686d1
 +			   struct kdbus_conn *dst);
 +
 +#endif /* __KDBUS_QUEUE_H */
-diff --git a/ipc/kdbus/reply.c b/ipc/kdbus/reply.c
-new file mode 100644
-index 0000000..e6791d8
+Index: linux-4.2/ipc/kdbus/reply.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/reply.c
++++ linux-4.2/ipc/kdbus/reply.c
 @@ -0,0 +1,252 @@
 +#include <linux/init.h>
 +#include <linux/mm.h>
@@ -21834,11 +21783,10 @@ index 0000000..e6791d8
 +
 +	kdbus_notify_flush(conn->ep->bus);
 +}
-diff --git a/ipc/kdbus/reply.h b/ipc/kdbus/reply.h
-new file mode 100644
-index 0000000..68d5232
+Index: linux-4.2/ipc/kdbus/reply.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/reply.h
++++ linux-4.2/ipc/kdbus/reply.h
 @@ -0,0 +1,68 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -21908,11 +21856,10 @@ index 0000000..68d5232
 +void kdbus_reply_list_scan_work(struct work_struct *work);
 +
 +#endif /* __KDBUS_REPLY_H */
-diff --git a/ipc/kdbus/util.c b/ipc/kdbus/util.c
-new file mode 100644
-index 0000000..72b1883
+Index: linux-4.2/ipc/kdbus/util.c
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/util.c
++++ linux-4.2/ipc/kdbus/util.c
 @@ -0,0 +1,156 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -22070,11 +22017,10 @@ index 0000000..72b1883
 +
 +	return pad;
 +}
-diff --git a/ipc/kdbus/util.h b/ipc/kdbus/util.h
-new file mode 100644
-index 0000000..5297166
+Index: linux-4.2/ipc/kdbus/util.h
+===================================================================
 --- /dev/null
-+++ b/ipc/kdbus/util.h
++++ linux-4.2/ipc/kdbus/util.h
 @@ -0,0 +1,73 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -22149,10 +22095,10 @@ index 0000000..5297166
 +size_t kdbus_kvec_pad(struct kvec *kvec, u64 *len);
 +
 +#endif
-diff --git a/samples/Kconfig b/samples/Kconfig
-index 224ebb4..a4c6b2f 100644
---- a/samples/Kconfig
-+++ b/samples/Kconfig
+Index: linux-4.2/samples/Kconfig
+===================================================================
+--- linux-4.2.orig/samples/Kconfig
++++ linux-4.2/samples/Kconfig
 @@ -55,6 +55,13 @@ config SAMPLE_KDB
  	  Build an example of how to dynamically add the hello
  	  command to the kdb shell.
@@ -22167,10 +22113,10 @@ index 224ebb4..a4c6b2f 100644
  config SAMPLE_RPMSG_CLIENT
  	tristate "Build rpmsg client sample -- loadable modules only"
  	depends on RPMSG && m
-diff --git a/samples/Makefile b/samples/Makefile
-index f00257b..f0ad51e 100644
---- a/samples/Makefile
-+++ b/samples/Makefile
+Index: linux-4.2/samples/Makefile
+===================================================================
+--- linux-4.2.orig/samples/Makefile
++++ linux-4.2/samples/Makefile
 @@ -1,4 +1,5 @@
  # Makefile for Linux samples code
  
@@ -22178,18 +22124,16 @@ index f00257b..f0ad51e 100644
 -			   hw_breakpoint/ kfifo/ kdb/ hidraw/ rpmsg/ seccomp/
 +			   hw_breakpoint/ kfifo/ kdb/ kdbus/ hidraw/ rpmsg/ \
 +			   seccomp/
-diff --git a/samples/kdbus/.gitignore b/samples/kdbus/.gitignore
-new file mode 100644
-index 0000000..ee07d98
+Index: linux-4.2/samples/kdbus/.gitignore
+===================================================================
 --- /dev/null
-+++ b/samples/kdbus/.gitignore
++++ linux-4.2/samples/kdbus/.gitignore
 @@ -0,0 +1 @@
 +kdbus-workers
-diff --git a/samples/kdbus/Makefile b/samples/kdbus/Makefile
-new file mode 100644
-index 0000000..137f842
+Index: linux-4.2/samples/kdbus/Makefile
+===================================================================
 --- /dev/null
-+++ b/samples/kdbus/Makefile
++++ linux-4.2/samples/kdbus/Makefile
 @@ -0,0 +1,9 @@
 +# kbuild trick to avoid linker error. Can be omitted if a module is built.
 +obj- := dummy.o
@@ -22200,11 +22144,10 @@ index 0000000..137f842
 +
 +HOSTCFLAGS_kdbus-workers.o += -I$(objtree)/usr/include
 +HOSTLOADLIBES_kdbus-workers := -lrt
-diff --git a/samples/kdbus/kdbus-api.h b/samples/kdbus/kdbus-api.h
-new file mode 100644
-index 0000000..7f3abae
+Index: linux-4.2/samples/kdbus/kdbus-api.h
+===================================================================
 --- /dev/null
-+++ b/samples/kdbus/kdbus-api.h
++++ linux-4.2/samples/kdbus/kdbus-api.h
 @@ -0,0 +1,114 @@
 +#ifndef KDBUS_API_H
 +#define KDBUS_API_H
@@ -22320,11 +22263,10 @@ index 0000000..7f3abae
 +}
 +
 +#endif /* KDBUS_API_H */
-diff --git a/samples/kdbus/kdbus-workers.c b/samples/kdbus/kdbus-workers.c
-new file mode 100644
-index 0000000..5a6dfdc
+Index: linux-4.2/samples/kdbus/kdbus-workers.c
+===================================================================
 --- /dev/null
-+++ b/samples/kdbus/kdbus-workers.c
++++ linux-4.2/samples/kdbus/kdbus-workers.c
 @@ -0,0 +1,1346 @@
 +/*
 + * Copyright (C) 2013-2015 David Herrmann <dh.herrmann@gmail.com>
@@ -23672,30 +23614,28 @@ index 0000000..5a6dfdc
 +}
 +
 +#endif /* libc sanity check */
-diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-index 95abddc..b57100c 100644
---- a/tools/testing/selftests/Makefile
-+++ b/tools/testing/selftests/Makefile
-@@ -5,6 +5,7 @@ TARGETS += exec
- TARGETS += firmware
+Index: linux-4.2/tools/testing/selftests/Makefile
+===================================================================
+--- linux-4.2.orig/tools/testing/selftests/Makefile
++++ linux-4.2/tools/testing/selftests/Makefile
+@@ -6,6 +6,7 @@ TARGETS += firmware
  TARGETS += ftrace
+ TARGETS += futex
  TARGETS += kcmp
 +TARGETS += kdbus
  TARGETS += memfd
  TARGETS += memory-hotplug
  TARGETS += mount
-diff --git a/tools/testing/selftests/kdbus/.gitignore b/tools/testing/selftests/kdbus/.gitignore
-new file mode 100644
-index 0000000..d3ef42f
+Index: linux-4.2/tools/testing/selftests/kdbus/.gitignore
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/.gitignore
++++ linux-4.2/tools/testing/selftests/kdbus/.gitignore
 @@ -0,0 +1 @@
 +kdbus-test
-diff --git a/tools/testing/selftests/kdbus/Makefile b/tools/testing/selftests/kdbus/Makefile
-new file mode 100644
-index 0000000..8f36cb5
+Index: linux-4.2/tools/testing/selftests/kdbus/Makefile
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/Makefile
++++ linux-4.2/tools/testing/selftests/kdbus/Makefile
 @@ -0,0 +1,49 @@
 +CFLAGS += -I../../../../usr/include/
 +CFLAGS += -I../../../../samples/kdbus/
@@ -23746,11 +23686,10 @@ index 0000000..8f36cb5
 +
 +clean:
 +	rm -f *.o kdbus-test
-diff --git a/tools/testing/selftests/kdbus/kdbus-enum.c b/tools/testing/selftests/kdbus/kdbus-enum.c
-new file mode 100644
-index 0000000..4f1e579
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-enum.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-enum.c
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-enum.c
 @@ -0,0 +1,94 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -23846,11 +23785,10 @@ index 0000000..4f1e579
 +	ENUM(KDBUS_PAYLOAD_DBUS),
 +};
 +LOOKUP(PAYLOAD);
-diff --git a/tools/testing/selftests/kdbus/kdbus-enum.h b/tools/testing/selftests/kdbus/kdbus-enum.h
-new file mode 100644
-index 0000000..ed28cca
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-enum.h
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-enum.h
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-enum.h
 @@ -0,0 +1,15 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -23867,11 +23805,10 @@ index 0000000..ed28cca
 +const char *enum_MSG(long long id);
 +const char *enum_MATCH(long long id);
 +const char *enum_PAYLOAD(long long id);
-diff --git a/tools/testing/selftests/kdbus/kdbus-test.c b/tools/testing/selftests/kdbus/kdbus-test.c
-new file mode 100644
-index 0000000..db57381
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-test.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-test.c
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-test.c
 @@ -0,0 +1,905 @@
 +#include <errno.h>
 +#include <stdio.h>
@@ -24778,11 +24715,10 @@ index 0000000..db57381
 +
 +	return 0;
 +}
-diff --git a/tools/testing/selftests/kdbus/kdbus-test.h b/tools/testing/selftests/kdbus/kdbus-test.h
-new file mode 100644
-index 0000000..ee937f9
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-test.h
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-test.h
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-test.h
 @@ -0,0 +1,84 @@
 +#ifndef _TEST_KDBUS_H_
 +#define _TEST_KDBUS_H_
@@ -24868,11 +24804,10 @@ index 0000000..ee937f9
 +int kdbus_test_writable_pool(struct kdbus_test_env *env);
 +
 +#endif /* _TEST_KDBUS_H_ */
-diff --git a/tools/testing/selftests/kdbus/kdbus-util.c b/tools/testing/selftests/kdbus/kdbus-util.c
-new file mode 100644
-index 0000000..82fa89b
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-util.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-util.c
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-util.c
 @@ -0,0 +1,1612 @@
 +/*
 + * Copyright (C) 2013-2015 Daniel Mack
@@ -26486,11 +26421,10 @@ index 0000000..82fa89b
 +
 +	return ret;
 +}
-diff --git a/tools/testing/selftests/kdbus/kdbus-util.h b/tools/testing/selftests/kdbus/kdbus-util.h
-new file mode 100644
-index 0000000..e1e18b9
+Index: linux-4.2/tools/testing/selftests/kdbus/kdbus-util.h
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/kdbus-util.h
++++ linux-4.2/tools/testing/selftests/kdbus/kdbus-util.h
 @@ -0,0 +1,218 @@
 +/*
 + * Copyright (C) 2013-2015 Kay Sievers
@@ -26710,11 +26644,10 @@ index 0000000..e1e18b9
 +int config_auditsyscall_is_enabled(void);
 +int config_cgroups_is_enabled(void);
 +int config_security_is_enabled(void);
-diff --git a/tools/testing/selftests/kdbus/test-activator.c b/tools/testing/selftests/kdbus/test-activator.c
-new file mode 100644
-index 0000000..3d1b763
+Index: linux-4.2/tools/testing/selftests/kdbus/test-activator.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-activator.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-activator.c
 @@ -0,0 +1,318 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -27034,11 +26967,10 @@ index 0000000..3d1b763
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-benchmark.c b/tools/testing/selftests/kdbus/test-benchmark.c
-new file mode 100644
-index 0000000..8a9744b
+Index: linux-4.2/tools/testing/selftests/kdbus/test-benchmark.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-benchmark.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-benchmark.c
 @@ -0,0 +1,451 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -27491,11 +27423,10 @@ index 0000000..8a9744b
 +	compare_uds = true;
 +	return benchmark(env);
 +}
-diff --git a/tools/testing/selftests/kdbus/test-bus.c b/tools/testing/selftests/kdbus/test-bus.c
-new file mode 100644
-index 0000000..762fb30
+Index: linux-4.2/tools/testing/selftests/kdbus/test-bus.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-bus.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-bus.c
 @@ -0,0 +1,175 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -27672,11 +27603,10 @@ index 0000000..762fb30
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-chat.c b/tools/testing/selftests/kdbus/test-chat.c
-new file mode 100644
-index 0000000..41e5b53
+Index: linux-4.2/tools/testing/selftests/kdbus/test-chat.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-chat.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-chat.c
 @@ -0,0 +1,124 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -27802,11 +27732,10 @@ index 0000000..41e5b53
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-connection.c b/tools/testing/selftests/kdbus/test-connection.c
-new file mode 100644
-index 0000000..4688ce8
+Index: linux-4.2/tools/testing/selftests/kdbus/test-connection.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-connection.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-connection.c
 @@ -0,0 +1,597 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -28405,11 +28334,10 @@ index 0000000..4688ce8
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-daemon.c b/tools/testing/selftests/kdbus/test-daemon.c
-new file mode 100644
-index 0000000..8bc2386
+Index: linux-4.2/tools/testing/selftests/kdbus/test-daemon.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-daemon.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-daemon.c
 @@ -0,0 +1,65 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -28476,11 +28404,10 @@ index 0000000..8bc2386
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-endpoint.c b/tools/testing/selftests/kdbus/test-endpoint.c
-new file mode 100644
-index 0000000..34a7be4
+Index: linux-4.2/tools/testing/selftests/kdbus/test-endpoint.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-endpoint.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-endpoint.c
 @@ -0,0 +1,352 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -28834,11 +28761,10 @@ index 0000000..34a7be4
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-fd.c b/tools/testing/selftests/kdbus/test-fd.c
-new file mode 100644
-index 0000000..2ae0f5a
+Index: linux-4.2/tools/testing/selftests/kdbus/test-fd.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-fd.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-fd.c
 @@ -0,0 +1,789 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -29629,11 +29555,10 @@ index 0000000..2ae0f5a
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-free.c b/tools/testing/selftests/kdbus/test-free.c
-new file mode 100644
-index 0000000..f666da3
+Index: linux-4.2/tools/testing/selftests/kdbus/test-free.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-free.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-free.c
 @@ -0,0 +1,64 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -29699,11 +29624,10 @@ index 0000000..f666da3
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-match.c b/tools/testing/selftests/kdbus/test-match.c
-new file mode 100644
-index 0000000..2360dc1
+Index: linux-4.2/tools/testing/selftests/kdbus/test-match.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-match.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-match.c
 @@ -0,0 +1,441 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -30146,11 +30070,10 @@ index 0000000..2360dc1
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-message.c b/tools/testing/selftests/kdbus/test-message.c
-new file mode 100644
-index 0000000..563dc85
+Index: linux-4.2/tools/testing/selftests/kdbus/test-message.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-message.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-message.c
 @@ -0,0 +1,734 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -30886,11 +30809,10 @@ index 0000000..563dc85
 +
 +	return 0;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-metadata-ns.c b/tools/testing/selftests/kdbus/test-metadata-ns.c
-new file mode 100644
-index 0000000..1f6edc0
+Index: linux-4.2/tools/testing/selftests/kdbus/test-metadata-ns.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-metadata-ns.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-metadata-ns.c
 @@ -0,0 +1,500 @@
 +/*
 + * Test metadata in new namespaces. Even if our tests can run
@@ -31392,11 +31314,10 @@ index 0000000..1f6edc0
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-monitor.c b/tools/testing/selftests/kdbus/test-monitor.c
-new file mode 100644
-index 0000000..e00d738
+Index: linux-4.2/tools/testing/selftests/kdbus/test-monitor.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-monitor.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-monitor.c
 @@ -0,0 +1,176 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -31574,11 +31495,10 @@ index 0000000..e00d738
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-names.c b/tools/testing/selftests/kdbus/test-names.c
-new file mode 100644
-index 0000000..e400dc8
+Index: linux-4.2/tools/testing/selftests/kdbus/test-names.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-names.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-names.c
 @@ -0,0 +1,272 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -31852,11 +31772,10 @@ index 0000000..e400dc8
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-policy-ns.c b/tools/testing/selftests/kdbus/test-policy-ns.c
-new file mode 100644
-index 0000000..3437012
+Index: linux-4.2/tools/testing/selftests/kdbus/test-policy-ns.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-policy-ns.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-policy-ns.c
 @@ -0,0 +1,632 @@
 +/*
 + * Test metadata and policies in new namespaces. Even if our tests
@@ -32490,11 +32409,10 @@ index 0000000..3437012
 +
 +	return ret;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-policy-priv.c b/tools/testing/selftests/kdbus/test-policy-priv.c
-new file mode 100644
-index 0000000..0208638
+Index: linux-4.2/tools/testing/selftests/kdbus/test-policy-priv.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-policy-priv.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-policy-priv.c
 @@ -0,0 +1,1285 @@
 +#include <errno.h>
 +#include <stdio.h>
@@ -33781,11 +33699,10 @@ index 0000000..0208638
 +
 +	return ret;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-policy.c b/tools/testing/selftests/kdbus/test-policy.c
-new file mode 100644
-index 0000000..96d20d5
+Index: linux-4.2/tools/testing/selftests/kdbus/test-policy.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-policy.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-policy.c
 @@ -0,0 +1,80 @@
 +#include <errno.h>
 +#include <stdio.h>
@@ -33867,11 +33784,10 @@ index 0000000..96d20d5
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-sync.c b/tools/testing/selftests/kdbus/test-sync.c
-new file mode 100644
-index 0000000..0655a54
+Index: linux-4.2/tools/testing/selftests/kdbus/test-sync.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-sync.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-sync.c
 @@ -0,0 +1,369 @@
 +#include <stdio.h>
 +#include <string.h>
@@ -34242,11 +34158,10 @@ index 0000000..0655a54
 +
 +	return TEST_OK;
 +}
-diff --git a/tools/testing/selftests/kdbus/test-timeout.c b/tools/testing/selftests/kdbus/test-timeout.c
-new file mode 100644
-index 0000000..cfd1930
+Index: linux-4.2/tools/testing/selftests/kdbus/test-timeout.c
+===================================================================
 --- /dev/null
-+++ b/tools/testing/selftests/kdbus/test-timeout.c
++++ linux-4.2/tools/testing/selftests/kdbus/test-timeout.c
 @@ -0,0 +1,99 @@
 +#include <stdio.h>
 +#include <string.h>
