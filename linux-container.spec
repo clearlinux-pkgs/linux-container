@@ -49,6 +49,10 @@ patch12: 0012-No-wait-for-the-known-devices.patch
 patch13: 0013-Turn-mmput-into-an-async-function.patch
 Patch14: 0014-ptdamage.patch
 
+# Security
+Patch21: CVE-2015-6937.patch
+Patch22: CVE-2015-7613.patch
+
 # plkvm patches
 Patch401: 401-plkvm.patch
 Patch403: 403-rdrand.patch
@@ -89,6 +93,9 @@ Linux kernel extra file
 %patch12 -p1
 %patch13 -p1
 %patch14 -p1
+
+%patch21 -p1
+%patch22 -p1
 
 %patch401 -p1
 %patch403 -p1
