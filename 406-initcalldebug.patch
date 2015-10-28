@@ -1,6 +1,8 @@
---- linux-4.0/init/main.c~	2015-05-29 15:48:25.000000000 -0400
-+++ linux-4.0/init/main.c	2015-05-29 15:49:03.401449715 -0400
-@@ -756,16 +756,16 @@
+diff --git a/init/main.c b/init/main.c
+index 3516047..2efff16 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -763,16 +763,16 @@ __setup("initcall_blacklist=", initcall_blacklist);
  
  static int __init_or_module do_one_initcall_debug(initcall_t fn)
  {
@@ -9,8 +11,9 @@
  	unsigned long long duration;
  	int ret;
  
- 	printk(KERN_DEBUG "calling  %pF @ %i\n", fn, raw_smp_processor_id());
+-	printk(KERN_DEBUG "calling  %pF @ %i\n", fn, raw_smp_processor_id());
 -	calltime = ktime_get();
++	printk(KERN_DEBUG "calling  %pF @ %i\n", fn, task_pid_nr(current));
 +	calltime = local_clock();
  	ret = fn();
 -	rettime = ktime_get();

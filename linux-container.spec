@@ -1,17 +1,17 @@
 #
 # This is a special configuration of the Linux kernel, aimed exclusively
 # for running inside a container
-# This specialization allows us top optimize memory footprint and boot time.
+# This specialization allows us to optimize memory footprint and boot time.
 #
 
 Name:           linux-container
-Version:        4.2.1
+Version:        4.2.5
 Release:        41
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.1.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.2.5.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -51,7 +51,6 @@ Patch14: 0014-ptdamage.patch
 
 # Security
 Patch21: CVE-2015-6937.patch
-Patch22: CVE-2015-7613.patch
 
 # plkvm patches
 Patch401: 401-plkvm.patch
@@ -77,7 +76,7 @@ Group:          kernel
 Linux kernel extra file
 
 %prep
-%setup -q -n linux-4.2.1
+%setup -q -n linux-4.2.5
 
 %patch1 -p1
 %patch2 -p1
@@ -95,7 +94,6 @@ Linux kernel extra file
 %patch14 -p1
 
 %patch21 -p1
-%patch22 -p1
 
 %patch401 -p1
 %patch403 -p1
