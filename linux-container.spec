@@ -51,6 +51,7 @@ Patch14: 0014-ptdamage.patch
 
 # Security
 Patch21: CVE-2015-6937.patch
+Patch22: cve-2016-0728.patch
 
 # plkvm patches
 Patch401: 401-plkvm.patch
@@ -94,6 +95,7 @@ Linux kernel extra file
 %patch14 -p1
 
 %patch21 -p1
+%patch22 -p1
 
 %patch401 -p1
 %patch403 -p1
