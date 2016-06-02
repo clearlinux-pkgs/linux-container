@@ -6,7 +6,7 @@
 
 Name:           linux-container
 Version:        4.2.5
-Release:        46
+Release:        47
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
@@ -62,8 +62,6 @@ Patch406: 406-initcalldebug.patch
 Patch407: 407-pci-guest-kernel-set-pci-net-class-bar-to-3.patch
 Patch408: 408-restart-info-log.patch
 
-# kdbus
-Patch701: 701-kdbus.patch
 
 %description
 The Linux kernel.
@@ -105,7 +103,6 @@ Linux kernel extra file
 %patch407 -p1
 %patch408 -p1
 
-%patch701 -p1
 
 cp %{SOURCE1} .
 
