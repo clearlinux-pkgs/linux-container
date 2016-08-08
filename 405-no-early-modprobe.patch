@@ -1,6 +1,17 @@
---- linux-4.0/kernel/kmod.c~	2015-04-28 13:06:48.000000000 -0400
-+++ linux-4.0/kernel/kmod.c	2015-05-15 11:25:12.274028307 -0400
-@@ -550,7 +550,7 @@
+From d6591f46bc3ec76a50a8fd9931bf44823f3686e9 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Thu, 11 Feb 2016 11:07:54 -0600
+Subject: [PATCH] no early modprobe
+
+---
+ kernel/kmod.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/kmod.c b/kernel/kmod.c
+index 0277d12..20b5777 100644
+--- a/kernel/kmod.c
++++ b/kernel/kmod.c
+@@ -557,7 +557,7 @@ int call_usermodehelper_exec(struct subprocess_info *sub_info, int wait)
  	DECLARE_COMPLETION_ONSTACK(done);
  	int retval = 0;
  
@@ -9,3 +20,6 @@
  		call_usermodehelper_freeinfo(sub_info);
  		return -EINVAL;
  	}
+-- 
+2.4.3
+

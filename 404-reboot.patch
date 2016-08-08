@@ -1,6 +1,17 @@
---- linux-4.0/kernel/reboot.c~	2015-04-12 18:12:50.000000000 -0400
-+++ linux-4.0/kernel/reboot.c	2015-05-06 09:45:56.991894271 -0400
-@@ -309,7 +309,7 @@
+From ad84f233fd380745ede74bf65428b9fa2221d279 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Thu, 11 Feb 2016 11:06:26 -0600
+Subject: [PATCH] reboot
+
+---
+ kernel/reboot.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index bd30a97..cdc5152 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -309,7 +309,7 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
  	 * halt when pm_power_off is not set do it the easy way.
  	 */
  	if ((cmd == LINUX_REBOOT_CMD_POWER_OFF) && !pm_power_off)
@@ -9,9 +20,7 @@
  
  	mutex_lock(&reboot_mutex);
  	switch (cmd) {
---- linux-4.0/kernel/reboot.c~	2015-05-06 09:45:56.000000000 -0400
-+++ linux-4.0/kernel/reboot.c	2015-05-08 09:43:18.178582429 -0400
-@@ -326,7 +326,7 @@
+@@ -326,7 +326,7 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
  		break;
  
  	case LINUX_REBOOT_CMD_HALT:
@@ -20,3 +29,6 @@
  		do_exit(0);
  		panic("cannot halt");
  
+-- 
+2.4.3
+

@@ -1,4 +1,4 @@
-From a3d2be032f8ac2b27bd13d1e98ebb0fc817c3984 Mon Sep 17 00:00:00 2001
+From f922bf4880e5c5146e51c43643ab39af2dd9c9b4 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 11 Feb 2015 16:19:26 -0600
 Subject: [PATCH 02/14] Skip synchronize_rcu() on single CPU systems
@@ -13,10 +13,10 @@ Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/cpuidle/cpuidle.c b/drivers/cpuidle/cpuidle.c
-index 48b7228..7788325 100644
+index 17a6dc0..8dca6c6 100644
 --- a/drivers/cpuidle/cpuidle.c
 +++ b/drivers/cpuidle/cpuidle.c
-@@ -303,8 +303,11 @@ void cpuidle_uninstall_idle_handler(void)
+@@ -307,8 +307,11 @@ void cpuidle_uninstall_idle_handler(void)
  	/*
  	 * Make sure external observers (such as the scheduler)
  	 * are done looking at pointed idle states.

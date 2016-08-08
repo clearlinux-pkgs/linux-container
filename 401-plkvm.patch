@@ -1,14 +1,20 @@
-commit 4be236120978fb0ab85dce5c5b60a228bbf3c8b3
-Author: Alan <alan@linux.intel.com>
-Date:   Mon Feb 16 15:27:50 2015 +0000
+From c7e25d67277f457b6d0a20c6bcb06978f6a1212b Mon Sep 17 00:00:00 2001
+From: Alan <alan@intel.com>
+Date: Thu, 11 Feb 2016 10:18:09 -0600
+Subject: [PATCH] pmem_lkvm: push the lkvm DAX driver into the external tree
 
-    pmem_lkvm: push the lkvm DAX driver into the external tree
+---
+ drivers/block/Kconfig     |   6 +
+ drivers/block/Makefile    |   3 +
+ drivers/block/pmem_lkvm.c | 454 ++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 463 insertions(+)
+ create mode 100644 drivers/block/pmem_lkvm.c
 
 diff --git a/drivers/block/Kconfig b/drivers/block/Kconfig
-index 1b8094d..8bb241f 100644
+index 29819e7..eeb91f9 100644
 --- a/drivers/block/Kconfig
 +++ b/drivers/block/Kconfig
-@@ -558,4 +558,10 @@ config BLK_DEV_RSXX
+@@ -547,4 +547,10 @@ config BLK_DEV_RSXX
  	  To compile this driver as a module, choose M here: the
  	  module will be called rsxx.
  
@@ -20,16 +26,16 @@ index 1b8094d..8bb241f 100644
 +
  endif # BLK_DEV
 diff --git a/drivers/block/Makefile b/drivers/block/Makefile
-index 02b688d..0d07e06 100644
+index 6713290..c3fbbed 100644
 --- a/drivers/block/Makefile
 +++ b/drivers/block/Makefile
-@@ -44,6 +44,8 @@ obj-$(CONFIG_BLK_DEV_RSXX) += rsxx/
+@@ -43,5 +43,8 @@ obj-$(CONFIG_BLK_DEV_RSXX) += rsxx/
  obj-$(CONFIG_BLK_DEV_NULL_BLK)	+= null_blk.o
  obj-$(CONFIG_ZRAM) += zram/
  
 +obj-$(CONFIG_BLK_DEV_PLKVM)	+= pmem_lkvm.o
 +
- nvme-y		:= nvme-core.o nvme-scsi.o
++nvme-y		:= nvme-core.o nvme-scsi.o
  skd-y		:= skd_main.o
  swim_mod-y	:= swim.o swim_asm.o
 diff --git a/drivers/block/pmem_lkvm.c b/drivers/block/pmem_lkvm.c
@@ -224,7 +230,7 @@ index 0000000..881305b
 +	}
 +
 +out:
-+	bio_endio(bio, err);
++	bio_endio(bio);
 +}
 +
 +static int plkvm_rw_page(struct block_device *bdev, sector_t sector,
@@ -492,3 +498,6 @@ index 0000000..881305b
 +MODULE_LICENSE("GPL");
 +module_init(plkvm_init);
 +module_exit(plkvm_exit);
+-- 
+2.4.3
+

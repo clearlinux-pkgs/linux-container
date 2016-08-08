@@ -1,4 +1,4 @@
-From d6616ddf0627bf09e356b24752d32dd4ffd80b78 Mon Sep 17 00:00:00 2001
+From 70517ee31a9383fa5a9db71f47987977dc3890fd Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 11 Feb 2015 17:28:14 -0600
 Subject: [PATCH 08/14] smpboot
@@ -12,10 +12,10 @@ Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
-index b1f3ed9c..22d56fe 100644
+index fbabe4f..245b57c 100644
 --- a/arch/x86/kernel/smpboot.c
 +++ b/arch/x86/kernel/smpboot.c
-@@ -608,7 +608,7 @@ wakeup_secondary_cpu_via_init(int phys_apicid, unsigned long start_eip)
+@@ -605,7 +605,7 @@ wakeup_secondary_cpu_via_init(int phys_apicid, unsigned long start_eip)
  	pr_debug("Waiting for send to finish...\n");
  	send_status = safe_apic_wait_icr_idle();
  
@@ -25,10 +25,10 @@ index b1f3ed9c..22d56fe 100644
  	pr_debug("Deasserting INIT\n");
  
 diff --git a/arch/x86/kernel/tsc.c b/arch/x86/kernel/tsc.c
-index 7437b41..c6f2c49 100644
+index c7c4d9c..8913f79 100644
 --- a/arch/x86/kernel/tsc.c
 +++ b/arch/x86/kernel/tsc.c
-@@ -1241,6 +1241,9 @@ unsigned long calibrate_delay_is_known(void)
+@@ -1253,6 +1253,9 @@ unsigned long calibrate_delay_is_known(void)
  	if (!tsc_disabled && !cpu_has(&cpu_data(cpu), X86_FEATURE_CONSTANT_TSC))
  		return 0;
  

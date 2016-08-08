@@ -1,15 +1,24 @@
-On virtual machines, rdrand is already reseeded by the host cpu
+From b104ca392518c731bb9dfc5072099ffffeea9bde Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Tue, 29 Mar 2016 14:29:24 -0600
+Subject: [PATCH] rdrand
 
-no need to waste 10 msec of boot time on this
+---
+ arch/x86/kernel/cpu/rdrand.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-
---- a/arch/x86/kernel/cpu/rdrand.c~	2015-04-12 18:12:50.000000000 -0400
-+++ b/arch/x86/kernel/cpu/rdrand.c	2015-04-28 13:54:35.657574408 -0400
-@@ -48,6 +48,7 @@
+diff --git a/arch/x86/kernel/cpu/rdrand.c b/arch/x86/kernel/cpu/rdrand.c
+index 819d949..1bf8eb9 100644
+--- a/arch/x86/kernel/cpu/rdrand.c
++++ b/arch/x86/kernel/cpu/rdrand.c
+@@ -48,6 +48,7 @@ void x86_init_rdrand(struct cpuinfo_x86 *c)
  	if (!cpu_has(c, X86_FEATURE_RDRAND))
- 		return;		/* Nothing to do */
+ 		return;
  
 +	return;
- 	for (count = i = 0; i < RESEED_LOOP; i++) {
- 		ok = rdrand_long(&tmp);
- 		if (ok)
+ 	for (i = 0; i < SANITY_CHECK_LOOPS; i++) {
+ 		if (!rdrand_long(&tmp)) {
+ 			clear_cpu_cap(c, X86_FEATURE_RDRAND);
+-- 
+2.4.3
+

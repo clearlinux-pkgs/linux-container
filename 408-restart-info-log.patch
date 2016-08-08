@@ -1,7 +1,16 @@
-Index: linux-4.0/kernel/reboot.c
-===================================================================
---- linux-4.0.orig/kernel/reboot.c
-+++ linux-4.0/kernel/reboot.c
+From 6bf288fe30dc48ef9fcaacfba3501d27d85f3ce1 Mon Sep 17 00:00:00 2001
+From: Dimitri John Ledkov <dimitri.j.ledkov@intel.com>
+Date: Thu, 11 Feb 2016 13:14:53 -0600
+Subject: [PATCH] Show restart information using info log
+
+---
+ kernel/reboot.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index d20c85d..17ba2ae 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
 @@ -217,9 +217,9 @@ void kernel_restart(char *cmd)
  	migrate_to_reboot_cpu();
  	syscore_shutdown();
@@ -14,3 +23,6 @@ Index: linux-4.0/kernel/reboot.c
  	kmsg_dump(KMSG_DUMP_RESTART);
  	machine_restart(cmd);
  }
+-- 
+2.4.3
+

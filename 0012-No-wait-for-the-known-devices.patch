@@ -1,4 +1,4 @@
-From 296cf364626dd0f334447c34eb2e006ad1e51fc8 Mon Sep 17 00:00:00 2001
+From 52fa35414d9b3a9654618a5a96e68a4e0d95b07f Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Mon, 22 Jun 2015 09:33:33 -0500
 Subject: [PATCH 12/14] No wait for the known devices
