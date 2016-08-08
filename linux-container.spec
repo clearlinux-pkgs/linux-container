@@ -104,7 +104,7 @@ BuildKernel() {
     MakeTarget=$1
 
     Arch=x86_64
-    ExtraVer="-%{release}.container.testing"
+    ExtraVer="-%{release}.container"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
