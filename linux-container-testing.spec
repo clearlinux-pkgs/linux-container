@@ -4,9 +4,9 @@
 # This specialization allows us to optimize memory footprint and boot time.
 #
 
-Name:           linux-container
+Name:           linux-container-testing
 Version:        4.5
-Release:        48
+Release:        12
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
@@ -14,7 +14,7 @@ Group:          kernel
 Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.5.tar.xz
 Source1:        config
 
-%define kversion %{version}-%{release}.container
+%define kversion %{version}-%{release}.container.testing
 
 BuildRequires:  bash >= 2.03
 BuildRequires:  bc
