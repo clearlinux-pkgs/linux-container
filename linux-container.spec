@@ -6,7 +6,7 @@
 
 Name:           linux-container
 Version:        4.5
-Release:        49
+Release:        50
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
@@ -52,6 +52,8 @@ Patch15: 0015-silence-Power-down-msg.patch
 Patch18: 0001-crypto-testmgr-Add-a-flag-allowing-the-self-tests-to.patch
 
 Patch100: 0100-fs-9p-fix-create-unlink-getattr-idiom.patch
+# Dirty COW patch
+Patch101: 0101-mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch
 
 # plkvm patches
 Patch401: 401-plkvm.patch
@@ -87,6 +89,7 @@ The Linux kernel.
 %patch18 -p1
 
 %patch100 -p1
+%patch101 -p1
 
 %patch401 -p1
 %patch403 -p1
