@@ -1,8 +1,7 @@
-From 22c66ae7aadb3e4e77c200a5f94b73b4c97c27ea Mon Sep 17 00:00:00 2001
+From f4994d589ba5ae9eaf04bd976e22b05414345aec Mon Sep 17 00:00:00 2001
 From: Fan Du <fan.du@intel.com>
-Co-Authored-By: Anthony Xu <anthony.xu@intel.com>
-Date: Thu, May 26 2016 12:55:29 -0500
-Subject: [PATCH] pci {guest kernel}: set pci net class bar to 4
+Date: Thu, 26 May 2016 12:55:29 -0500
+Subject: [PATCH 207/208] pci {guest kernel}: set pci net class bar to 4
 
 For pci net class is defined as 0x020000
 By optimaztion, guess_bar_count set net class bar count to 2.
@@ -25,17 +24,15 @@ which is the 4th BAR, this BAR is not configured due to above
 reason in Clear-Container. BAR 3 in igbvf is pointing to PBA,
 which is used by MSI-X, that's why guest kernel failed to
 configure MSI-X interrupt for igbvf.
-
-
 ---
  drivers/pci/probe.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 73d1b9f..f3489a1 100644
+index 038a8164fecc..1fe31097892d 100644
 --- a/drivers/pci/probe.c
 +++ b/drivers/pci/probe.c
-@@ -1253,7 +1253,7 @@ static int guess_bar_count(int class)
+@@ -1357,7 +1357,7 @@ static int guess_bar_count(int class)
          if (class == 0x068000)
              return 0;
          if (class == 0x020000)
@@ -45,4 +42,5 @@ index 73d1b9f..f3489a1 100644
              return 2;
          if (class == 0x00ff00)
 -- 
-2.8.2
+2.11.0
+

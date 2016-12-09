@@ -1,14 +1,14 @@
-From b104ca392518c731bb9dfc5072099ffffeea9bde Mon Sep 17 00:00:00 2001
+From 9976688f253fba0b387b63665914238de21e46cd Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Tue, 29 Mar 2016 14:29:24 -0600
-Subject: [PATCH] rdrand
+Subject: [PATCH 204/208] rdrand
 
 ---
  arch/x86/kernel/cpu/rdrand.c | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/x86/kernel/cpu/rdrand.c b/arch/x86/kernel/cpu/rdrand.c
-index 819d949..1bf8eb9 100644
+index cfa97ff67bda..cd7aa166e3ba 100644
 --- a/arch/x86/kernel/cpu/rdrand.c
 +++ b/arch/x86/kernel/cpu/rdrand.c
 @@ -48,6 +48,7 @@ void x86_init_rdrand(struct cpuinfo_x86 *c)
@@ -20,5 +20,5 @@ index 819d949..1bf8eb9 100644
  		if (!rdrand_long(&tmp)) {
  			clear_cpu_cap(c, X86_FEATURE_RDRAND);
 -- 
-2.4.3
+2.11.0
 

@@ -1,14 +1,14 @@
-From ad84f233fd380745ede74bf65428b9fa2221d279 Mon Sep 17 00:00:00 2001
+From 04b3b2dfcd3c2ec98a46cd15f2305d3e302e8a46 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Thu, 11 Feb 2016 11:06:26 -0600
-Subject: [PATCH] reboot
+Subject: [PATCH 205/208] reboot
 
 ---
  kernel/reboot.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/reboot.c b/kernel/reboot.c
-index bd30a97..cdc5152 100644
+index eb6f8f6ee238..b367c1e01a08 100644
 --- a/kernel/reboot.c
 +++ b/kernel/reboot.c
 @@ -309,7 +309,7 @@ SYSCALL_DEFINE4(reboot, int, magic1, int, magic2, unsigned int, cmd,
@@ -30,5 +30,5 @@ index bd30a97..cdc5152 100644
  		panic("cannot halt");
  
 -- 
-2.4.3
+2.11.0
 

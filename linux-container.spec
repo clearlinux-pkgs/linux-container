@@ -5,106 +5,108 @@
 #
 
 Name:           linux-container
-Version:        4.5
-Release:        50
+Version:        4.8.12
+Release:        51
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.5.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.8.12.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
 
 BuildRequires:  bash >= 2.03
 BuildRequires:  bc
-# For bfd support in perf/trace
-BuildRequires:  binutils-devel
-BuildRequires:  elfutils
-BuildRequires:  elfutils-devel
+BuildRequires:  binutils-dev
+BuildRequires:  elfutils-dev
 BuildRequires:  make >= 3.78
-BuildRequires:  openssl
 BuildRequires:  openssl-dev
 BuildRequires:  flex
 BuildRequires:  bison
+
 
 # don't strip .ko files!
 %global __os_install_post %{nil}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# linux-kvm patches
-#Patch1:  0001-msleep.patch
-patch2:  0002-Skip-synchronize_rcu-on-single-CPU-systems.patch
-patch3:  0003-sysrq-Skip-synchronize_rcu-if-there-is-no-old-op.patch
-patch4:  0004-enable-no-blink-by-default.patch
-patch5:  0005-wakeups.patch
-patch6:  0006-probe.patch
-patch7:  0007-cgroup.patch
-patch8:  0008-smpboot.patch
-patch9:  0009-perf.patch
-patch10: 0010-tweak-the-scheduler-to-favor-CPU-0.patch
-patch11: 0011-probe2.patch
-patch12: 0012-No-wait-for-the-known-devices.patch
-patch13: 0013-Turn-mmput-into-an-async-function.patch
-Patch14: 0014-ptdamage.patch
-Patch15: 0015-silence-Power-down-msg.patch
-Patch18: 0001-crypto-testmgr-Add-a-flag-allowing-the-self-tests-to.patch
+# Serie    00XX: mainline, CVE, bugfixes patches
+Patch0071: cve-2016-8632.patch
+Patch0073: cve-2016-9083.patch
+Patch0074: cve-2016-9084.nopatch
 
-Patch100: 0100-fs-9p-fix-create-unlink-getattr-idiom.patch
-# Dirty COW patch
-Patch101: 0101-mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch
+# Serie    01XX: Clear Linux patches
+#Patch0101: 0101-msleep-warning.patch
+Patch0102: 0102-cpuidle-skip-synchronize_rcu-on-single-CPU-systems.patch
+Patch0103: 0103-sysrq-skip-synchronize_rcu-if-there-is-no-old-op.patch
+Patch0104: 0104-fbcon-enable-no-blink-by-default.patch
+Patch0105: 0105-vmstats-wakeups.patch
+Patch0106: 0106-pci-probe.patch
+Patch0107: 0107-cgroup.patch
+Patch0108: 0108-smpboot-reuse-timer-calibration.patch
+Patch0109: 0109-perf.patch
+Patch0110: 0110-pci-probe-identify-known-devices.patch
+Patch0111: 0111-init-no-wait-for-the-known-devices.patch
+Patch0112: 0112-ksm-wakeups.patch
+Patch0113: 0113-init-do_mounts-recreate-dev-root.patch
+Patch0114: 0114-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
 
-# plkvm patches
-Patch401: 401-plkvm.patch
-Patch403: 403-rdrand.patch
-Patch404: 404-reboot.patch
-Patch405: 405-no-early-modprobe.patch
-#Patch406: 406-initcalldebug.patch
-Patch407: 407-pci-guest-kernel-set-pci-net-class-bar-to-4.patch
-Patch408: 408-restart-info-log.patch
+# Serie    02XX: Clear Containers patches
+Patch0201: 0201-crypto-allow-testmgr-to-be-skipped.patch
+Patch0202: 0202-silence-Power-down-msg.patch
+Patch0203: 0203-fs-9p-fix-create-unlink-getattr-idiom.patch
+Patch0204: 0204-rdrand.patch
+Patch0205: 0205-reboot.patch
+Patch0206: 0206-no-early-modprobe.patch
+Patch0207: 0207-pci-guest-kernel-set-pci-net-class-bar-to-4.patch
+Patch0208: 0208-Show-restart-information-using-info-log.patch
+
+# Serie    XYYY: Extra features modules
 
 %description
 The Linux kernel.
 
-
 %prep
-%setup -q -n linux-4.5
+%setup -q -n linux-4.8.12
 
-#%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
-%patch15 -p1
-%patch18 -p1
+#     00XX  mainline, CVE, bugfixes patches
+%patch0071 -p1
+%patch0073 -p1
+#%patch0074 -p1 No patch, same as 73
 
-%patch100 -p1
-%patch101 -p1
+#     01XX  Clear Linux KVM patches
+#%patch0101 -p1
+%patch0102 -p1
+%patch0103 -p1
+%patch0104 -p1
+%patch0105 -p1
+%patch0106 -p1
+%patch0107 -p1
+%patch0108 -p1
+%patch0109 -p1
+%patch0110 -p1
+%patch0111 -p1
+%patch0112 -p1
+%patch0113 -p1
+%patch0114 -p1
 
-%patch401 -p1
-%patch403 -p1
-%patch404 -p1
-%patch405 -p1
-#%patch406 -p1
-%patch407 -p1
-%patch408 -p1
+#     02XX  Clear Containers patches
+%patch0201 -p1
+%patch0202 -p1
+%patch0203 -p1
+%patch0204 -p1
+%patch0205 -p1
+%patch0206 -p1
+%patch0207 -p1
+%patch0208 -p1
 
+# Serie    XYYY: Extra features modules
 
 cp %{SOURCE1} .
 
 %build
 BuildKernel() {
-    MakeTarget=$1
 
     Arch=x86_64
     ExtraVer="-%{release}.container"
@@ -115,16 +117,15 @@ BuildKernel() {
     cp config .config
 
     make -s ARCH=$Arch oldconfig > /dev/null
-    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch $MakeTarget %{?sparse_mflags} || exit 1
+    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags}
 }
 
-BuildKernel all
+BuildKernel
 
 %install
 
 InstallKernel() {
-    KernelImage=$1
-    KernelImageRaw=$2
+    KernelImageRaw=$1
 
     Arch=x86_64
     KernelVer=%{kversion}
@@ -140,7 +141,7 @@ InstallKernel() {
     rm -f %{buildroot}/usr/lib/modules/$KernelVer/source
 }
 
-InstallKernel arch/x86/boot/bzImage vmlinux
+InstallKernel vmlinux
 
 rm -rf %{buildroot}/usr/lib/firmware
 

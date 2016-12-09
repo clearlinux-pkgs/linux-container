@@ -1,7 +1,7 @@
-From 71396fa13e864278d9edd3f60fc7eb06a6973f02 Mon Sep 17 00:00:00 2001
+From 1bf5094f1f808d9136a69d1bd676c9be3e6691b8 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Fri, 28 Aug 2015 11:00:36 -0500
-Subject: [PATCH] cgroup
+Subject: [PATCH 107/114] cgroup
 
 Author:    Arjan van de Ven <arjan@linux.intel.com>
 
@@ -13,10 +13,10 @@ Signed-off-by: Jose Carlos Venegas Munoz <jos.c.venegas.munoz@intel.com>
  2 files changed, 15 insertions(+), 11 deletions(-)
 
 diff --git a/include/linux/cgroup-defs.h b/include/linux/cgroup-defs.h
-index 8e30fae..10cc307 100644
+index 5b17de62c962..9adb98ce68fb 100644
 --- a/include/linux/cgroup-defs.h
 +++ b/include/linux/cgroup-defs.h
-@@ -141,7 +141,7 @@ struct cgroup_subsys_state {
+@@ -136,7 +136,7 @@ struct cgroup_subsys_state {
  
  	/* percpu_ref killing and RCU release */
  	struct rcu_head rcu_head;
@@ -26,10 +26,10 @@ index 8e30fae..10cc307 100644
  
  /*
 diff --git a/kernel/cgroup.c b/kernel/cgroup.c
-index fb1ecfd..b49c670 100644
+index d6b729beba49..ba4e5f30bf15 100644
 --- a/kernel/cgroup.c
 +++ b/kernel/cgroup.c
-@@ -66,7 +66,7 @@
+@@ -70,7 +70,7 @@
   * Expiring in the middle is a performance problem not a correctness one.
   * 1 sec should be enough.
   */
@@ -38,7 +38,7 @@ index fb1ecfd..b49c670 100644
  
  #define CGROUP_FILE_NAME_MAX		(MAX_CGROUP_TYPE_NAMELEN +	\
  					 MAX_CFTYPE_NAME + 2)
-@@ -4672,8 +4672,9 @@ static struct cftype cgroup_legacy_base_files[] = {
+@@ -4973,8 +4973,9 @@ static struct cftype cgroup_legacy_base_files[] = {
   */
  static void css_free_work_fn(struct work_struct *work)
  {
@@ -49,7 +49,7 @@ index fb1ecfd..b49c670 100644
  	struct cgroup_subsys *ss = css->ss;
  	struct cgroup *cgrp = css->cgroup;
  
-@@ -4721,14 +4722,15 @@ static void css_free_rcu_fn(struct rcu_head *rcu_head)
+@@ -5023,14 +5024,15 @@ static void css_free_rcu_fn(struct rcu_head *rcu_head)
  	struct cgroup_subsys_state *css =
  		container_of(rcu_head, struct cgroup_subsys_state, rcu_head);
  
@@ -68,7 +68,7 @@ index fb1ecfd..b49c670 100644
  	struct cgroup_subsys *ss = css->ss;
  	struct cgroup *cgrp = css->cgroup;
  
-@@ -4767,8 +4769,9 @@ static void css_release(struct percpu_ref *ref)
+@@ -5071,8 +5073,9 @@ static void css_release(struct percpu_ref *ref)
  	struct cgroup_subsys_state *css =
  		container_of(ref, struct cgroup_subsys_state, refcnt);
  
@@ -80,7 +80,7 @@ index fb1ecfd..b49c670 100644
  }
  
  static void init_and_link_css(struct cgroup_subsys_state *css,
-@@ -5038,8 +5041,9 @@ out_destroy:
+@@ -5352,8 +5355,9 @@ out_unlock:
   */
  static void css_killed_work_fn(struct work_struct *work)
  {
@@ -91,7 +91,7 @@ index fb1ecfd..b49c670 100644
  
  	mutex_lock(&cgroup_mutex);
  
-@@ -5060,8 +5064,8 @@ static void css_killed_ref_fn(struct percpu_ref *ref)
+@@ -5374,8 +5378,8 @@ static void css_killed_ref_fn(struct percpu_ref *ref)
  		container_of(ref, struct cgroup_subsys_state, refcnt);
  
  	if (atomic_dec_and_test(&css->online_cnt)) {
@@ -103,5 +103,5 @@ index fb1ecfd..b49c670 100644
  }
  
 -- 
-2.4.3
+2.11.0
 

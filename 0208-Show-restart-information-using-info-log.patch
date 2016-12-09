@@ -1,14 +1,14 @@
-From 6bf288fe30dc48ef9fcaacfba3501d27d85f3ce1 Mon Sep 17 00:00:00 2001
+From 7c54bf2a3455f9192ecd2f01a79470da8986b8d1 Mon Sep 17 00:00:00 2001
 From: Dimitri John Ledkov <dimitri.j.ledkov@intel.com>
 Date: Thu, 11 Feb 2016 13:14:53 -0600
-Subject: [PATCH] Show restart information using info log
+Subject: [PATCH 208/208] Show restart information using info log
 
 ---
  kernel/reboot.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/kernel/reboot.c b/kernel/reboot.c
-index d20c85d..17ba2ae 100644
+index b367c1e01a08..cfd60137ace6 100644
 --- a/kernel/reboot.c
 +++ b/kernel/reboot.c
 @@ -217,9 +217,9 @@ void kernel_restart(char *cmd)
@@ -24,5 +24,5 @@ index d20c85d..17ba2ae 100644
  	machine_restart(cmd);
  }
 -- 
-2.4.3
+2.11.0
 

@@ -1,7 +1,7 @@
-From eaf70223eac094291169f5a6de580351890162a2 Mon Sep 17 00:00:00 2001
+From 0d1027cdcb7e949e1bc5acbec6987946d2c0e7f6 Mon Sep 17 00:00:00 2001
 From: Eric Van Hensbergen <ericvh@gmail.com>
 Date: Tue, 21 Apr 2015 12:46:29 -0700
-Subject: [PATCH] fs/9p: fix create-unlink-getattr idiom
+Subject: [PATCH 203/208] fs/9p: fix create-unlink-getattr idiom
 
 Fixes several outstanding bug reports of not being able to getattr from an
 open file after an unlink.  This patch cleans up transient fids on an unlink
@@ -27,7 +27,7 @@ Signed-off-by: Eric Van Hensbergen <ericvh@gmail.com>
  3 files changed, 38 insertions(+), 1 deletion(-)
 
 diff --git a/fs/9p/fid.c b/fs/9p/fid.c
-index 47db55a..5ca6e67 100644
+index 60fb47469c86..e19c9cf722da 100644
 --- a/fs/9p/fid.c
 +++ b/fs/9p/fid.c
 @@ -54,6 +54,33 @@ void v9fs_fid_add(struct dentry *dentry, struct p9_fid *fid)
@@ -75,7 +75,7 @@ index 47db55a..5ca6e67 100644
  
  	return ret;
 diff --git a/fs/9p/vfs_inode.c b/fs/9p/vfs_inode.c
-index 3a08b3e..4376fbd 100644
+index 8b1999b528e9..c62ae6029174 100644
 --- a/fs/9p/vfs_inode.c
 +++ b/fs/9p/vfs_inode.c
 @@ -624,6 +624,10 @@ static int v9fs_remove(struct inode *dir, struct dentry *dentry, int flags)
@@ -90,7 +90,7 @@ index 3a08b3e..4376fbd 100644
  	return retval;
  }
 diff --git a/net/9p/client.c b/net/9p/client.c
-index ea79ee9..df22fef 100644
+index 3fc94a49ccd5..98980bacefd4 100644
 --- a/net/9p/client.c
 +++ b/net/9p/client.c
 @@ -1208,7 +1208,7 @@ struct p9_fid *p9_client_walk(struct p9_fid *oldfid, uint16_t nwname,
@@ -127,5 +127,5 @@ index ea79ee9..df22fef 100644
  	fid->iounit = iounit;
  
 -- 
-2.1.0
+2.11.0
 

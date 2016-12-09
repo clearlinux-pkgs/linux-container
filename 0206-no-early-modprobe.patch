@@ -1,17 +1,17 @@
-From d6591f46bc3ec76a50a8fd9931bf44823f3686e9 Mon Sep 17 00:00:00 2001
+From 86f27879ddaae55d872502c784c82ce1c6641d6c Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Thu, 11 Feb 2016 11:07:54 -0600
-Subject: [PATCH] no early modprobe
+Subject: [PATCH 206/208] no early modprobe
 
 ---
  kernel/kmod.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/kernel/kmod.c b/kernel/kmod.c
-index 0277d12..20b5777 100644
+index bbbd977441c2..b70d6ae0e176 100644
 --- a/kernel/kmod.c
 +++ b/kernel/kmod.c
-@@ -557,7 +557,7 @@ int call_usermodehelper_exec(struct subprocess_info *sub_info, int wait)
+@@ -568,7 +568,7 @@ int call_usermodehelper_exec(struct subprocess_info *sub_info, int wait)
  	DECLARE_COMPLETION_ONSTACK(done);
  	int retval = 0;
  
@@ -21,5 +21,5 @@ index 0277d12..20b5777 100644
  		return -EINVAL;
  	}
 -- 
-2.4.3
+2.11.0
 

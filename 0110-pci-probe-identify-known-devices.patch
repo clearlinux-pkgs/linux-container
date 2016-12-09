@@ -1,7 +1,7 @@
-From 165126a4ba7fd102710f238992e0433683b9b813 Mon Sep 17 00:00:00 2001
+From 0d188a8ba284ac1e034fad7a7a3a07d503550d58 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Sat, 14 Feb 2015 09:49:41 -0600
-Subject: [PATCH 11/14] probe2
+Subject: [PATCH 110/114] pci: probe: identify known devices
 
 Author:    Arjan van de Ven <arjan@linux.intel.com>
 Modify-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
@@ -12,14 +12,13 @@ Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
  1 file changed, 156 insertions(+)
 
 diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 7521227d..190a66d 100644
+index a1fa0f784749..038a8164fecc 100644
 --- a/drivers/pci/probe.c
 +++ b/drivers/pci/probe.c
-@@ -162,6 +162,160 @@ static inline unsigned long decode_bar(struct pci_dev *dev, u32 bar)
+@@ -163,6 +163,159 @@ static inline unsigned long decode_bar(struct pci_dev *dev, u32 bar)
  
  #define PCI_COMMAND_DECODE_ENABLE	(PCI_COMMAND_MEMORY | PCI_COMMAND_IO)
  
-+
 +/* shortcut version of __pci_read_base where we know the sizes already */
 +int __pci_read_base_shortcut(struct pci_dev *dev, enum pci_bar_type type,
 +		    struct resource *res, unsigned int pos, u32 sz_in, u32 sz2_in)
@@ -176,15 +175,16 @@ index 7521227d..190a66d 100644
  /**
   * pci_read_base - read a PCI BAR
   * @dev: the PCI device
-@@ -181,6 +335,8 @@ int __pci_read_base(struct pci_dev *dev, enum pci_bar_type type,
+@@ -182,6 +335,9 @@ int __pci_read_base(struct pci_dev *dev, enum pci_bar_type type,
  
  	mask = type ? PCI_ROM_ADDRESS_MASK : ~0;
  
 +	if (is_known_device(dev, pos, &sz))
 +		return __pci_read_base_shortcut(dev, type, res, pos, sz, 0);
- 
++
  	res->name = pci_name(dev);
  
+ 	printk("clr: Starting probe for %s\n", res->name);
 -- 
-2.4.3
+2.11.0
 

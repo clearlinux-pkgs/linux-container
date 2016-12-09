@@ -1,7 +1,7 @@
-From a3625244f671383be54710c822252131c3db0f7a Mon Sep 17 00:00:00 2001
+From 842880b011b08d8eb893f13e875c2ddf4a3b1b55 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 11 Feb 2015 16:25:16 -0600
-Subject: [PATCH 03/14] sysrq: Skip synchronize_rcu() if there is no old op
+Subject: [PATCH 103/114] sysrq: skip synchronize_rcu() if there is no old op
 
 synchronize_rcu() is expensive. Currently it is called as part of the sysrq
 registration/unregistration, which happens during boot several times.
@@ -18,10 +18,10 @@ Signed-off-by: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/tty/sysrq.c b/drivers/tty/sysrq.c
-index 5381a72..6aa6e81 100644
+index 52bbd27e93ae..ffd64f8643b6 100644
 --- a/drivers/tty/sysrq.c
 +++ b/drivers/tty/sysrq.c
-@@ -1058,8 +1058,10 @@ static int __sysrq_swap_key_ops(int key, struct sysrq_key_op *insert_op_p,
+@@ -1065,8 +1065,10 @@ static int __sysrq_swap_key_ops(int key, struct sysrq_key_op *insert_op_p,
  	 * A concurrent __handle_sysrq either got the old op or the new op.
  	 * Wait for it to go away before returning, so the code for an old
  	 * op is not freed (eg. on module unload) while it is in use.
@@ -34,5 +34,5 @@ index 5381a72..6aa6e81 100644
  	return retval;
  }
 -- 
-2.4.3
+2.11.0
 
