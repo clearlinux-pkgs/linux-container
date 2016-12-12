@@ -32,9 +32,7 @@ BuildRequires:  bison
 %define __strip /bin/true
 
 # Serie    00XX: mainline, CVE, bugfixes patches
-Patch0071: cve-2016-8632.patch
-Patch0073: cve-2016-9083.patch
-Patch0074: cve-2016-9084.nopatch
+Patch0001: cve-2016-8632.patch
 
 # Serie    01XX: Clear Linux patches
 #Patch0101: 0101-msleep-warning.patch
@@ -71,9 +69,7 @@ The Linux kernel.
 %setup -q -n linux-4.8.12
 
 #     00XX  mainline, CVE, bugfixes patches
-%patch0071 -p1
-%patch0073 -p1
-#%patch0074 -p1 No patch, same as 73
+%patch0001 -p1
 
 #     01XX  Clear Linux KVM patches
 #%patch0101 -p1
