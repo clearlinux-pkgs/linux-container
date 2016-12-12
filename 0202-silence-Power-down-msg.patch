@@ -1,4 +1,4 @@
-From 4dd5ee50ac45a75ae96b6f38a0958796bee99877 Mon Sep 17 00:00:00 2001
+From 36e0aafb58a025e3192a636952f9d311709e5f7c Mon Sep 17 00:00:00 2001
 From: Jose Carlos Venegas Munoz <jose.carlos.venegas.munoz@intel.com>
 Date: Wed, 7 Dec 2016 17:53:45 -0600
 Subject: [PATCH 202/208] silence "Power down" msg

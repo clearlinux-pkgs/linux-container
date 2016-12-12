@@ -1,4 +1,4 @@
-From fbd3bd8c7458c275bd0d35588d68a1d11a7afed0 Mon Sep 17 00:00:00 2001
+From ad6f88f68030f689ac791db3447de52dcfa24eb6 Mon Sep 17 00:00:00 2001
 From: Miguel Bernal Marin <miguel.bernal.marin@linux.intel.com>
 Date: Fri, 20 Nov 2015 14:01:26 -0600
 Subject: [PATCH 113/114] init: do_mounts: recreate /dev/root
@@ -23,7 +23,7 @@ index da840946d90b..0c220656f68a 100644
  
  	if (root_delay) {
  		printk(KERN_INFO "Waiting %d sec before mounting root device...\n",
-@@ -604,6 +605,13 @@ out:
+@@ -604,6 +605,13 @@ void __init prepare_namespace(void)
  	devtmpfs_mount("dev");
  	sys_mount(".", "/", NULL, MS_MOVE, NULL);
  	sys_chroot(".");

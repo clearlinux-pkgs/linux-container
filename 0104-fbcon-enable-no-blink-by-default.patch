@@ -1,4 +1,4 @@
-From 30e9d2e6314c882f1fbacc78a2bcc4dc7884c432 Mon Sep 17 00:00:00 2001
+From 058ec77176f79f50a86cbc5609045b3bf0697939 Mon Sep 17 00:00:00 2001
 From: Jose Carlos Venegas Munoz <jos.c.venegas.munoz@intel.com>
 Date: Mon, 13 Apr 2015 11:26:36 -0500
 Subject: [PATCH 104/114] fbcon: enable no blink by default

@@ -1,4 +1,4 @@
-From 5b5e8adb1051b191ad570865a84c79903ea30d2c Mon Sep 17 00:00:00 2001
+From d7fbd21c2ee1931fe3cf5e201801f82dec018473 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 7 Dec 2016 17:50:05 -0600
 Subject: [PATCH 201/208] crypto: allow testmgr to be skipped
@@ -8,7 +8,7 @@ Subject: [PATCH 201/208] crypto: allow testmgr to be skipped
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-index 5c9d5a5e7b65..14fdc0c08880 100644
+index 62dffa0028ac..197e9c530f1f 100644
 --- a/crypto/testmgr.c
 +++ b/crypto/testmgr.c
 @@ -36,7 +36,7 @@

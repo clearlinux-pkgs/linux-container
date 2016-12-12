@@ -1,4 +1,4 @@
-From 338c75442a64bd62ae9169b3b075c05e95c373e9 Mon Sep 17 00:00:00 2001
+From 4d82517cb103263375ecd7a405a7c3f0bb69bed0 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Wed, 11 Feb 2015 16:19:26 -0600
 Subject: [PATCH 102/114] cpuidle: skip synchronize_rcu() on single CPU systems

@@ -1,4 +1,4 @@
-From 86f27879ddaae55d872502c784c82ce1c6641d6c Mon Sep 17 00:00:00 2001
+From 8306e90af8936f6c02517ae7079182c65d121d76 Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Thu, 11 Feb 2016 11:07:54 -0600
 Subject: [PATCH 206/208] no early modprobe

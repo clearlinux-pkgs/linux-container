@@ -1,4 +1,4 @@
-From f4994d589ba5ae9eaf04bd976e22b05414345aec Mon Sep 17 00:00:00 2001
+From bac97458bf52e5bcd5588b94435e402c44106496 Mon Sep 17 00:00:00 2001
 From: Fan Du <fan.du@intel.com>
 Date: Thu, 26 May 2016 12:55:29 -0500
 Subject: [PATCH 207/208] pci {guest kernel}: set pci net class bar to 4
@@ -29,7 +29,7 @@ configure MSI-X interrupt for igbvf.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 038a8164fecc..1fe31097892d 100644
+index cbe81b100d51..8b7dbd221af3 100644
 --- a/drivers/pci/probe.c
 +++ b/drivers/pci/probe.c
 @@ -1357,7 +1357,7 @@ static int guess_bar_count(int class)

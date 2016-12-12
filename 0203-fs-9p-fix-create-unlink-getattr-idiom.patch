@@ -1,4 +1,4 @@
-From 0d1027cdcb7e949e1bc5acbec6987946d2c0e7f6 Mon Sep 17 00:00:00 2001
+From 949d8d88c9f977f864cc4c67bfcb8c54880e1bbd Mon Sep 17 00:00:00 2001
 From: Eric Van Hensbergen <ericvh@gmail.com>
 Date: Tue, 21 Apr 2015 12:46:29 -0700
 Subject: [PATCH 203/208] fs/9p: fix create-unlink-getattr idiom
@@ -75,7 +75,7 @@ index 60fb47469c86..e19c9cf722da 100644
  
  	return ret;
 diff --git a/fs/9p/vfs_inode.c b/fs/9p/vfs_inode.c
-index 8b1999b528e9..c62ae6029174 100644
+index 30ca770c5e0b..c00487eaf781 100644
 --- a/fs/9p/vfs_inode.c
 +++ b/fs/9p/vfs_inode.c
 @@ -624,6 +624,10 @@ static int v9fs_remove(struct inode *dir, struct dentry *dentry, int flags)
