@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.9.0 Kernel Configuration
+# Linux/x86 4.9.4 Kernel Configuration
 #
 CONFIG_64BIT=y
 CONFIG_X86_64=y
@@ -680,7 +680,6 @@ CONFIG_TCP_CONG_ADVANCED=y
 # CONFIG_TCP_CONG_DCTCP is not set
 # CONFIG_TCP_CONG_CDG is not set
 CONFIG_TCP_CONG_BBR=y
-# CONFIG_DEFAULT_CUBIC is not set
 CONFIG_DEFAULT_BBR=y
 # CONFIG_DEFAULT_RENO is not set
 CONFIG_DEFAULT_TCP_CONG="bbr"
