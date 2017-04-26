@@ -5,13 +5,13 @@
 #
 
 Name:           linux-container
-Version:        4.9.4
+Version:        4.9.24
 Release:        58
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.4.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.24.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
@@ -66,7 +66,7 @@ Patch0208: 0208-Show-restart-information-using-info-log.patch
 The Linux kernel.
 
 %prep
-%setup -q -n linux-4.9.4
+%setup -q -n linux-4.9.24
 
 #     00XX  mainline, CVE, bugfixes patches
 %patch0001 -p1
