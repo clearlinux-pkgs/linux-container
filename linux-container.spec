@@ -6,7 +6,7 @@
 
 Name:           linux-container
 Version:        4.9.31
-Release:        66
+Release:        67
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
@@ -32,7 +32,6 @@ BuildRequires:  bison
 %define __strip /bin/true
 
 # Serie    00XX: mainline, CVE, bugfixes patches
-Patch0001: cve-2016-8632.patch
 
 # Serie    01XX: Clear Linux patches
 #Patch0101: 0101-msleep-warning.patch
@@ -69,7 +68,6 @@ The Linux kernel.
 %setup -q -n linux-4.9.31
 
 #     00XX  mainline, CVE, bugfixes patches
-%patch0001 -p1
 
 #     01XX  Clear Linux KVM patches
 #%patch0101 -p1
