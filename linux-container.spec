@@ -119,13 +119,18 @@ BuildKernel
 %install
 
 InstallKernel() {
-    KernelImageRaw=$1
+    KernelImage=$1
+    KernelImageRaw=$2
 
     Arch=x86_64
     KernelVer=%{kversion}
     KernelDir=%{buildroot}/usr/share/clear-containers
 
     mkdir   -p ${KernelDir}
+
+    cp $KernelImage ${KernelDir}/vmlinuz-$KernelVer
+    chmod 755 ${KernelDir}/vmlinuz-$KernelVer
+    ln -sf vmlinuz-$KernelVer ${KernelDir}/vmlinuz.container
 
     cp $KernelImageRaw ${KernelDir}/vmlinux-$KernelVer
     chmod 755 ${KernelDir}/vmlinux-$KernelVer
@@ -135,7 +140,7 @@ InstallKernel() {
     rm -f %{buildroot}/usr/lib/modules/$KernelVer/source
 }
 
-InstallKernel vmlinux
+InstallKernel arch/x86/boot/bzImage vmlinux
 
 rm -rf %{buildroot}/usr/lib/firmware
 
@@ -143,3 +148,5 @@ rm -rf %{buildroot}/usr/lib/firmware
 %dir /usr/share/clear-containers
 /usr/share/clear-containers/vmlinux-%{kversion}
 /usr/share/clear-containers/vmlinux.container
+/usr/share/clear-containers/vmlinuz-%{kversion}
+/usr/share/clear-containers/vmlinuz.container
