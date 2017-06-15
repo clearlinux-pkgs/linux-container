@@ -6,7 +6,7 @@
 
 Name:           linux-container
 Version:        4.9.32
-Release:        71
+Release:        73
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
