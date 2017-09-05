@@ -5,13 +5,13 @@
 #
 
 Name:           linux-container
-Version:        4.9.35
-Release:        76
+Version:        4.9.47
+Release:        77
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.9.35.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.47.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
@@ -25,16 +25,12 @@ BuildRequires:  openssl-dev
 BuildRequires:  flex
 BuildRequires:  bison
 
-
 # don't strip .ko files!
 %global __os_install_post %{nil}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# Serie    00XX: mainline, CVE, bugfixes patches
-
 # Serie    01XX: Clear Linux patches
-#Patch0101: 0101-msleep-warning.patch
 Patch0102: 0102-cpuidle-skip-synchronize_rcu-on-single-CPU-systems.patch
 Patch0103: 0103-sysrq-skip-synchronize_rcu-if-there-is-no-old-op.patch
 Patch0104: 0104-fbcon-enable-no-blink-by-default.patch
@@ -65,9 +61,7 @@ Patch0208: 0208-Show-restart-information-using-info-log.patch
 The Linux kernel.
 
 %prep
-%setup -q -n linux-4.9.35
-
-#     00XX  mainline, CVE, bugfixes patches
+%setup -q -n linux-4.9.47
 
 #     01XX  Clear Linux KVM patches
 #%patch0101 -p1
@@ -111,7 +105,7 @@ BuildKernel() {
     cp config .config
 
     make -s ARCH=$Arch oldconfig > /dev/null
-    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags}
+    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags} || exit 1
 }
 
 BuildKernel
