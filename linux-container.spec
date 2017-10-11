@@ -5,13 +5,13 @@
 #
 
 Name:           linux-container
-Version:        4.9.47
-Release:        77
+Version:        4.9.54
+Release:        78
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.47.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.54.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
@@ -35,7 +35,6 @@ Patch0102: 0102-cpuidle-skip-synchronize_rcu-on-single-CPU-systems.patch
 Patch0103: 0103-sysrq-skip-synchronize_rcu-if-there-is-no-old-op.patch
 Patch0104: 0104-fbcon-enable-no-blink-by-default.patch
 Patch0105: 0105-vmstats-wakeups.patch
-Patch0106: 0106-pci-probe.patch
 Patch0107: 0107-cgroup.patch
 Patch0108: 0108-smpboot-reuse-timer-calibration.patch
 Patch0109: 0109-perf.patch
@@ -52,8 +51,8 @@ Patch0203: 0203-fs-9p-fix-create-unlink-getattr-idiom.patch
 Patch0204: 0204-rdrand.patch
 Patch0205: 0205-reboot.patch
 Patch0206: 0206-no-early-modprobe.patch
-Patch0207: 0207-pci-guest-kernel-set-pci-net-class-bar-to-4.patch
 Patch0208: 0208-Show-restart-information-using-info-log.patch
+Patch0209: 0209-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
 
 # Serie    XYYY: Extra features modules
 
@@ -61,7 +60,7 @@ Patch0208: 0208-Show-restart-information-using-info-log.patch
 The Linux kernel.
 
 %prep
-%setup -q -n linux-4.9.47
+%setup -q -n linux-4.9.54
 
 #     01XX  Clear Linux KVM patches
 #%patch0101 -p1
@@ -69,7 +68,6 @@ The Linux kernel.
 %patch0103 -p1
 %patch0104 -p1
 %patch0105 -p1
-%patch0106 -p1
 %patch0107 -p1
 %patch0108 -p1
 %patch0109 -p1
@@ -86,8 +84,8 @@ The Linux kernel.
 %patch0204 -p1
 %patch0205 -p1
 %patch0206 -p1
-%patch0207 -p1
 %patch0208 -p1
+%patch0209 -p1
 
 # Serie    XYYY: Extra features modules
 
