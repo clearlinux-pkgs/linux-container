@@ -5,13 +5,13 @@
 #
 
 Name:           linux-container
-Version:        4.9.54
-Release:        78
+Version:        4.9.58
+Release:        79
 License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.54.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.9.58.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
@@ -60,7 +60,7 @@ Patch0209: 0209-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
 The Linux kernel.
 
 %prep
-%setup -q -n linux-4.9.54
+%setup -q -n linux-4.9.58
 
 #     01XX  Clear Linux KVM patches
 #%patch0101 -p1
