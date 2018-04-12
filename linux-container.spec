@@ -30,20 +30,6 @@ BuildRequires:  bison
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# Serie    01XX: Clear Linux patches
-Patch0102: 0102-cpuidle-skip-synchronize_rcu-on-single-CPU-systems.patch
-Patch0103: 0103-sysrq-skip-synchronize_rcu-if-there-is-no-old-op.patch
-Patch0104: 0104-fbcon-enable-no-blink-by-default.patch
-Patch0105: 0105-vmstats-wakeups.patch
-Patch0107: 0107-cgroup.patch
-Patch0108: 0108-smpboot-reuse-timer-calibration.patch
-Patch0109: 0109-perf.patch
-Patch0110: 0110-pci-probe-identify-known-devices.patch
-Patch0111: 0111-init-no-wait-for-the-known-devices.patch
-Patch0112: 0112-ksm-wakeups.patch
-Patch0113: 0113-init-do_mounts-recreate-dev-root.patch
-Patch0114: 0114-xattr-allow-setting-user.-attributes-on-symlinks-by-.patch
-
 # Serie    02XX: Clear Containers patches
 Patch0209: 0209-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
 
@@ -54,20 +40,6 @@ The Linux kernel.
 
 %prep
 %setup -q -n linux-4.14.22
-
-#     01XX  Clear Linux KVM patches
-%patch0102 -p1
-%patch0103 -p1
-%patch0104 -p1
-%patch0105 -p1
-%patch0107 -p1
-%patch0108 -p1
-%patch0109 -p1
-%patch0110 -p1
-%patch0111 -p1
-%patch0112 -p1
-%patch0113 -p1
-%patch0114 -p1
 
 #     02XX  Clear Containers patches
 %patch0209 -p1
