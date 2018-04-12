@@ -11,7 +11,7 @@ License:        GPL-2.0
 Summary:        The Linux kernel optimized for running inside a container
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        http://www.kernel.org/pub/linux/kernel/v4.x/linux-4.14.22.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.22.tar.xz
 Source1:        config
 
 %define kversion %{version}-%{release}.container
@@ -30,10 +30,8 @@ BuildRequires:  bison
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# Serie    02XX: Clear Containers patches
-Patch0209: 0209-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
+Patch0001: 0001-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
 
-# Serie    XYYY: Extra features modules
 
 %description
 The Linux kernel.
@@ -41,10 +39,7 @@ The Linux kernel.
 %prep
 %setup -q -n linux-4.14.22
 
-#     02XX  Clear Containers patches
-%patch0209 -p1
-
-# Serie    XYYY: Extra features modules
+%patch0001 -p1
 
 cp %{SOURCE1} .
 
