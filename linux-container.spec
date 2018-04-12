@@ -31,13 +31,6 @@ BuildRequires:  bison
 %define __strip /bin/true
 
 # Serie    02XX: Clear Containers patches
-Patch0201: 0201-crypto-allow-testmgr-to-be-skipped.patch
-Patch0202: 0202-silence-Power-down-msg.patch
-Patch0203: 0203-fs-9p-fix-create-unlink-getattr-idiom.patch
-Patch0204: 0204-rdrand.patch
-Patch0205: 0205-reboot.patch
-Patch0206: 0206-no-early-modprobe.patch
-Patch0208: 0208-Show-restart-information-using-info-log.patch
 Patch0209: 0209-HACK-9P-always-use-cached-inode-to-fill-in-v9fs_vfs_.patch
 
 # Serie    XYYY: Extra features modules
@@ -49,13 +42,6 @@ The Linux kernel.
 %setup -q -n linux-4.9.60
 
 #     02XX  Clear Containers patches
-%patch0201 -p1
-%patch0202 -p1
-%patch0203 -p1
-%patch0204 -p1
-%patch0205 -p1
-%patch0206 -p1
-%patch0208 -p1
 %patch0209 -p1
 
 # Serie    XYYY: Extra features modules
